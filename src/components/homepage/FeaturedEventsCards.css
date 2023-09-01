@@ -1,0 +1,100 @@
+.featuredEventsCard {
+  background-image: url("../../images/featured-event1.png");
+  /* backdrop-filter: blur(10px); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 90.8vw;
+  height: 27vw;
+  border-radius: 1.5vw;
+  margin-block: 2vw;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.featuredEventsCardTop {
+  flex: 0.7;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.featuredEventsCardBottom {
+  flex: 0.3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2vw;
+  backdrop-filter: blur(12px) opacity(60%);
+  border-radius: 1.5vw;
+}
+
+.featuredEventsCardButtons {
+  margin: 0.4vw;
+  box-sizing: border-box;
+  padding: 0.7vw;
+  display: flex;
+  gap: 0.7vw;
+  color: #6081b2;
+}
+
+.featuredEventsCardBtn {
+  height: 4.5vw;
+  width: 11.5vw;
+  border-radius: 0.4vw;
+  border: none;
+  cursor: pointer;
+  background: rgba(189, 235, 254);
+  color: #6081b2;
+  font-family: "Kumbh Sans", "sans-serif";
+  font-size: 2vw;
+}
+
+.fearuredEventsCardName {
+  font-size: 3.125vw;
+  font-family: "Kumbh Sans", "sans-serif";
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.fearuredEventsCardTime {
+  font-size: 1.6vw;
+  font-family: "Kumbh Sans", "sans-serif";
+  font-weight: 500;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 750px) {
+  .featuredEventsCard {
+    width: 91vw;
+    height: 29vw;
+    border-radius: 3.5vw;
+    margin-block: 2.2vw;
+  }
+
+  .featuredEventsCardBottom {
+    padding: 2.5vw 4.5vw;
+    border-radius: 3.5vw;
+  }
+
+  .featuredEventsCardButtons {
+    margin: 1vw;
+    padding: 1vw 2vw;
+    display: flex;
+    gap: 1vw;
+  }
+
+  .featuredEventsCardBtn {
+    height: 4.5vw;
+    width: 11.5vw;
+    border-radius: 1vw;
+    font-size: 1.6vw;
+  }
+
+  .fearuredEventsCardName {
+    font-size: 4.5vw;
+  }
+
+  .fearuredEventsCardTime {
+    font-size: 2.3vw;
+  }
+}

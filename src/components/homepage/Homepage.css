@@ -1,0 +1,17 @@
+.homepage {
+  max-width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.footer-background {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  object-fit: contain;
+  z-index: -1;
+}

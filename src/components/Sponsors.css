@@ -1,0 +1,50 @@
+.sponsors {
+  margin: 2vw 4vw;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sponsors > h3 {
+  margin-bottom: 2.1vw;
+  font-family: "Fredoka", sans-serif;
+  font-size: 3.125vw;
+  color: #002c68;
+}
+
+.sponsorsCards {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.1vw;
+}
+
+.sponsorsCardContainer {
+  width: 27vw;
+}
+.sponsorsCard {
+  width: 27vw;
+}
+
+@media only screen and (max-width: 750px) {
+  .sponsors {
+    margin: 2.3vw 4.5vw;
+  }
+
+  .sponsors > h3 {
+    margin-bottom: 2.3vw;
+    font-size: 4.5vw;
+  }
+
+  .sponsorsCards {
+    gap: 1.4vw;
+  }
+
+  .sponsorsCardContainer,
+  .sponsorsCard {
+    width: 29vw;
+  }
+}
