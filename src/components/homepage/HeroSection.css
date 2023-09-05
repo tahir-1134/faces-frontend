@@ -16,6 +16,7 @@
   position: relative;
   top: 0;
   left: 0;
+  z-index: 0;
 }
 /*
 .herosection-badmintonguy {
@@ -43,3 +44,66 @@
   transform: scale(0.8);
   z-index: 1;
 } */
+.ehsaas-block {
+  margin: auto;
+  max-width: fit-content;
+  font-family: 'Bigshot One', cursive;
+  font-size: 14.47vw;
+  color:#E5FCFF;
+  height: 6vw;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  top:22vw;
+  left: 28vw;
+}
+@media screen and (max-width: 650px) {
+  .ehsaas-block {
+  height: 2vw;  }
+}
+.ehsaas-char{
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+.bounce-3 {
+  animation-name: bounce-3;
+  animation-timing-function: ease;
+  text-shadow: -0.43vw 0.489vw #5FC5FF,-1.5177vw 0.489vw #003459;
+}
+
+@keyframes bounce-3 {
+  0% {
+    transform: translateY(0);
+  }
+
+  30% {
+    transform: translateY(-6vw);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+#E{
+  animation-delay: 0;
+}
+#h{
+    animation-delay: 200ms;
+}
+#s {
+  animation-delay: 100ms;
+}
+#a{
+  animation-delay: 300ms;
+}
+#a{
+  animation-delay: 500ms;
+}
+#s{
+  animation-delay: 400ms;
+}
