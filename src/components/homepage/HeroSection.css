@@ -41,7 +41,6 @@
 
 .herosection-footballguy {
   position: absolute;
-<<<<<<< HEAD
   width: 40vw;
   height: fit-content;
   top: 28.9vw;
@@ -242,24 +241,10 @@
   font-family: "Bigshot One", cursive;
   font-size: 14.47vw;
   color: #e5fcff;
-=======
-  top: 23vw;
-  left: -4vw;
-  transform: scale(0.8);
-  z-index: 1;
-} */
-.ehsaas-block {
-  margin: auto;
-  max-width: fit-content;
-  font-family: 'Bigshot One', cursive;
-  font-size: 14.47vw;
-  color:#E5FCFF;
->>>>>>> ef03ef6d3f9dc07fdbeff4f2c0b57f2387b10c20
   height: 6vw;
   display: flex;
   position: absolute;
   align-items: center;
-<<<<<<< HEAD
   top: 22vw;
   left: 28vw;
   z-index: 5;
@@ -270,16 +255,6 @@
   }
 }
 .ehsaas-char {
-=======
-  top:22vw;
-  left: 28vw;
-}
-@media screen and (max-width: 650px) {
-  .ehsaas-block {
-  height: 2vw;  }
-}
-.ehsaas-char{
->>>>>>> ef03ef6d3f9dc07fdbeff4f2c0b57f2387b10c20
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
@@ -307,24 +282,15 @@
     transform: translateY(0);
   }
 }
-<<<<<<< HEAD
 #E {
   animation-delay: 0;
 }
 #h {
   animation-delay: 200ms;
-=======
-#E{
-  animation-delay: 0;
-}
-#h{
-    animation-delay: 200ms;
->>>>>>> ef03ef6d3f9dc07fdbeff4f2c0b57f2387b10c20
 }
 #s {
   animation-delay: 100ms;
 }
-<<<<<<< HEAD
 #a {
   animation-delay: 300ms;
 }
@@ -334,14 +300,3 @@
 #s {
   animation-delay: 400ms;
 }
-=======
-#a{
-  animation-delay: 300ms;
-}
-#a{
-  animation-delay: 500ms;
-}
-#s{
-  animation-delay: 400ms;
-}
->>>>>>> ef03ef6d3f9dc07fdbeff4f2c0b57f2387b10c20
