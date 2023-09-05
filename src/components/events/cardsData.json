@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "Badminton (Singles)",
+    "day": "day1",
+    "category": "Cultural",
+    "imageSrc": "./events-image/badminton.jpg",
+    "time": "2:00 PM - 4:00 PM",
+    "description": "Event description 1",
+    "singleTeam": "Single",
+    "cost": "$10",
+    "location": "Event location 1"
+  },
+    {
+      "id": 2,
+      "title": "Code Shacks",
+      "day": "day2",
+      "category": "Seminar",
+      "imageSrc": "./events-image/codeshacks.jpg",
+      "timing": "3:30-5:30"
+    },
+    {
+      "id": 3,
+      "title": "Dance Competition(Team)",
+      "day": "day3",
+      "category": "Cultural",
+      "imageSrc": "./events-image/dance-competition.jpg",
+      "timing": "1:00-3:00"
+    },    {
+      "id": 4,
+      "title": "Dance Competition(Team)",
+      "day": "day3",
+      "category": "Cultural",
+      "imageSrc": "./events-image/dance-competition.jpg",
+      "timing": "1:00-3:00"
+    },    {
+      "id": 5,
+      "title": "Dance Competition(Team)",
+      "day": "day3",
+      "category": "Cultural",
+      "imageSrc": "./events-image/dance-competition.jpg",
+      "timing": "1:00-3:00"
+    },    {
+      "id": 6,
+      "title": "Dance Competition(Team)",
+      "day": "day3",
+      "category": "Cultural",
+      "imageSrc": "./events-image/dance-competition.jpg",
+      "timing": "1:00-3:00"
+    }
+  ]
+  
