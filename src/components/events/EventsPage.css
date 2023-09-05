@@ -1,0 +1,24 @@
+
+.eventspage {
+  max-width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.footer-background {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 90%;
+  object-fit: contain;
+  z-index: -1;
+}
+.line-1 {
+  margin: 20px; 
+  height: 2px;
+  background:  #6EB8FD;
+}
