@@ -19,6 +19,7 @@ function HeroSection() {
           src={require("../../images/hero-section-background.png")}
           alt="hero-section-background"
         />
+<<<<<<< HEAD
         <img
           className="herosection-football"
           src={require("../../images/hero-section-football.png")}
@@ -28,6 +29,17 @@ function HeroSection() {
           className="herosection-basketball"
           src={require("../../images/hero-section-basketball.png")}
           alt="herosection-basketball"
+=======
+        <div className='ehsaas-block'>       
+        {Letters.map((letter, index) =>
+          <span key={index} id={letter} className="ehsaas-char bounce-3">{letter}</span>
+          )}
+        </div>
+        {/* <img
+          className="herosection-badmintonguy"
+          src={require("../../images/hero-section-badmintonguy.png")}
+          alt="herosection-badmintonguy"
+>>>>>>> ef03ef6d3f9dc07fdbeff4f2c0b57f2387b10c20
         />
         <img
           className="herosection-basketballguy"
