@@ -1,0 +1,87 @@
+@import url('https://fonts.cdnfonts.com/css/fredoka-one');
+
+.disclaimer-group{
+    width:40vw;
+    position:relative;
+    right:0;
+}
+.image-div {
+    display: flex;
+    /* justify-content: space-between; */
+    margin-top: 20px;
+     padding: 30px 0 0 34px; 
+  }
+  .square-wrapper {
+    position: absolute;
+    right:0;
+    width: 40vw; 
+    height: 40vw; 
+    border: 2px solid #0f172e; 
+    border-radius: 2vw; 
+    margin: 5vw 10vw 0 0;
+    backdrop-filter: blur(6px);
+  }
+  
+  /* Style for the .square div */
+  .square {
+    position: absolute;
+    right: 0;
+    /* width: 40vw; */
+    /* height: 40vw; */
+    background: radial-gradient( 76.45% 76.45% at 50% 50%, rgba(251, 251, 255, 0.95) 54.17%, #d6d0ff 100% );
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transition: transform 0.3s ease;
+    transform: translate(20px, 20px);
+    border-radius: 2vw; 
+    /* padding: 0 0 4vw 1vw;*/
+  }
+  .square:hover {
+    transform: scale(1.5);
+  }
+  .disclaimer-text {
+    font-family: 'Fredoka', sans-serif; 
+    padding: 20px; 
+    font-size: 1.2vw;
+  }
+  .dtext-head{
+    text-align: center;
+
+  }
+  .disclaimer-text ul {
+    list-style-type: decimal; 
+
+    padding-inline-start: 10px;
+  }
+  /* @media (max-width: 650px) {
+.image-div{
+  display:block;
+}
+  } */
+
+   /* @media (max-width: 1000px) {
+    .disclaimer-text {
+      font-size: 1.3vw;
+      padding: 10px; 
+  }
+   } */
+  /* @media (max-width: 800px) {
+    .disclaimer-text {
+      font-size: 1.3vw; 
+      padding: 10px; 
+    }
+  }
+  @media (max-width: 565px) {
+    .square{
+      width:45vw;
+      height:45vw;
+    }
+    .square1{
+      width:45vw;
+      height:45vw;
+    }
+    .disclaimer-text {
+      font-size: 1.3vw; 
+      padding: 10px; 
+    }
+  } */

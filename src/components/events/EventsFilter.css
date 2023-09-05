@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  /* background: linear-gradient(279deg, #d4f1f4, #99dce3); */
+}
+
+.card-division {
+  margin: 10px;
+  /* padding: 30px; */
+  width: 100%;
+}
+
+
+.filters {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+
+
+/* Updated styles for the filters */
+.filters select {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  margin-left: 10px;
+  border-radius: 0.25rem;
+  border: none;
+  background-color: #05D1FE; 
+  color: #002C68; 
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 7px 22px 7px; 
+  cursor: pointer;
+}
+
+.filters select::after {
+  color: white;
+}
+
+.filters select:focus {
+  background-color: #002C68; 
+  outline: none;
+  color: white;
+}
+
+.filters select option {
+  background-color: #E4F2FF;
+  color: #002C68;
+  font-weight: bold;
+}
+.reset-button {
+  position:absolute;
+  right: 0;
+  border-radius: 0.75rem;
+  border:none;
+  background: linear-gradient(180deg, #FF415E 0%, #FF8062 100%);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white; 
+  padding: 8px 10px; 
+  font-size: 14px;
+  cursor: pointer;
+  margin-right:10px;
+  transition: background-color 0.3s ease-out, transform 0.3s ease-out;
+}
+.reset-button:hover {
+ 
+  transform: scale(1.2); /* Scale the button slightly on hover */
+}
