@@ -38,9 +38,9 @@ function EventCards() {
             className="custom-select"
           >
             <option value="All">Day</option>
-            <option value="day1">Day 1</option>
-            <option value="day2">Day 2</option>
-            <option value="day3">Day 3</option>
+            <option value="1">Day 1</option>
+            <option value="2">Day 2</option>
+            <option value="3">Day 3</option>
           </select>
         </label>
         <label>
