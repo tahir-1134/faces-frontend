@@ -62,7 +62,7 @@ function EventCards() {
       </div>
 
     
-      <Cards filteredCards={filteredCards} />
+      <Cards filteredCards={filteredCards} isVerified={null}/>
     </div>
   );
 }
