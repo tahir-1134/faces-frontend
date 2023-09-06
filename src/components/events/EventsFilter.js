@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./EventsFilter.css";
 import cardData from "./cardsData.json";
-import Cards from "./Cards"; // Import the Cards component
-
+import Cards from "./Cards"; 
 function EventCards() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [selectedDay, setSelectedDay] = useState("All");
@@ -23,8 +22,8 @@ function EventCards() {
 
   const filteredCards = cards.filter((card) => {
     return (
-      (selectedFilter === "All" || card.category === selectedFilter) &&
-      (selectedDay === "All" || card.day === selectedDay)
+      (selectedFilter === "All" || card.category == selectedFilter) &&
+      (selectedDay === "All" || card.day == selectedDay)
     );
   });
 
@@ -50,8 +49,8 @@ function EventCards() {
             className="custom-select"
           >
             <option value="All">Category</option>
-            <option value="Cultural">Cultural</option>
-            <option value="Sports">Sports</option>
+            <option value="C">Cultural</option>
+            <option value="S">Sports</option>
             <option value="Seminar">Seminar</option>
           </select>
         </label>
