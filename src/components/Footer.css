@@ -12,6 +12,7 @@
   font-family: "Fredoka", sans-serif;
   font-size: 1.6vw;
   gap: 30px;
+  bottom: 0%;
 }
 
 @media only screen and (max-width: 600px) {
@@ -23,5 +24,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    bottom: 0%;
   }
 }
