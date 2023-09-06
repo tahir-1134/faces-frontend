@@ -59,8 +59,8 @@ function EventCards() {
         </button>
       </div>
 
-    
-      <Cards filteredCards={filteredCards} />
+   <Cards filteredCards={filteredCards} isVerified={null} />
+     
     </div>
   );
 }

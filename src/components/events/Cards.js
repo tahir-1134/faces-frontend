@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Cards.css";
 
-function Cards({ filteredCards }) {
+function Cards({ filteredCards, isVerified }) {
   const [expandedCardId, setExpandedCardId] = useState(null);
 
   const handleCardClick = (cardId) => {
@@ -9,6 +9,17 @@ function Cards({ filteredCards }) {
       setExpandedCardId(null);
     } else {
       setExpandedCardId(cardId);
+    }
+  };
+
+  // Function to render the verification icon based on the verification status
+  const renderVerificationIcon = (isVerified) => {
+    if (isVerified === null) {
+      return null; // Don't display any icon if verification status is null
+    } else if (isVerified) {
+      return <span className="verification-icon">&#10004;</span>; // Display a tick icon for true
+    } else {
+      return <span className="verification-icon">&#10006;</span>; // Display a cross icon for false
     }
   };
 
@@ -24,7 +35,12 @@ function Cards({ filteredCards }) {
             className="card-image"
             style={{ backgroundImage: `url(${card.image})` }}
           >
-            <div className="card-title">{card.title}</div>
+            <div className="card-title">
+              {card.title} 
+              {isVerified ? <img src={require("../../images/verified.png")} alt="name" className='eventVerification' 
+                                    /> : <img src={require("../../images/unverified.png")} alt="name"
+                                        className='eventVerification' />}
+            </div>
             <div className="card-timing">
               {`${card.start} - ${card.end}`}
             </div>
