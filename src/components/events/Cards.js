@@ -15,21 +15,28 @@ function Cards({ filteredCards }) {
   return (
     <div className="cards">
       {filteredCards.map((card) => (
-        <div key={card.id} className="card">
+        <div
+          key={card.event_code}
+          className={`card ${expandedCardId === card.event_code ? "expanded" : ""}`}
+          onClick={() => handleCardClick(card.event_code)}
+        >
           <div
             className="card-image"
-            style={{ backgroundImage: `url(${card.imageSrc})` }}
-            onClick={() => handleCardClick(card.id)}
-          ></div>
-          <div className="card-title">{card.title}</div>
-          <div className="card-timing">{card.timing}</div>
-          <div className="card-category">{card.category}</div>
-          <div className="card-day">{card.day}</div>
-          {expandedCardId === card.id && (
-            <div className="additional-info">
-              <h2>Box hofhiehihhfiafhihfahfihwfa</h2>
+            style={{ backgroundImage: `url(${card.image})` }}
+          >
+            <div className="card-title">{card.title}</div>
+            <div className="card-timing">
+              {`${card.start} - ${card.end}`}
             </div>
-          )}
+            <div className="card-category">{card.category}</div>
+            <div className="card-day">Day {card.day}</div>
+          </div>
+          <div className={`card-description ${expandedCardId === card.event_code ? "show" : "hide"}`}>
+            <div> Event Description: {card.description} </div>
+            <div> Max seats: {card.max_seats} </div>
+            <div> Entry seats: {card.entry_fee} </div>
+            <div> Prize Money: {card.prize_money} </div>
+          </div>
         </div>
       ))}
     </div>
