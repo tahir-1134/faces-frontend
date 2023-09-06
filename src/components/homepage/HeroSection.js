@@ -20,6 +20,11 @@ function HeroSection() {
           alt="hero-section-background"
         />
         <img
+          className="herosection-badmintonguy"
+          src={require("../../images/hero-section-badmintonguy.png")}
+          alt="herosection-badmintonguy"
+        />
+        <img
           className="herosection-football"
           src={require("../../images/hero-section-football.png")}
           alt="herosection-football"
@@ -39,6 +44,7 @@ function HeroSection() {
           src={require("../../images/hero-section-footballguy.png")}
           alt="herosection-footballguy"
         />
+
         <img
           className="herosection-hoop1"
           src={require("../../images/hero-section-hoop1.png")}
@@ -72,6 +78,11 @@ function HeroSection() {
         <img
           className="herosection-beam4"
           src={require("../../images/hero-section-beam4.png")}
+          alt="herosection-beam"
+        />
+        <img
+          className="herosection-beam5"
+          src={require("../../images/hero-section-beam5.png")}
           alt="herosection-beam"
         />
         <img

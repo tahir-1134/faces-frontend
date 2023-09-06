@@ -16,7 +16,7 @@ function Navbar() {
   function handleClick() {
     setMobileNav(!mobileNav);
   }
-  console.log(windowStatus);
+  // console.log(windowStatus);
   return (
     <>
       {windowStatus ? (

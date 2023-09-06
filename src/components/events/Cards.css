@@ -1,7 +1,7 @@
-@import url('https://fonts.cdnfonts.com/css/kumbh-sans');
+@import url("https://fonts.cdnfonts.com/css/kumbh-sans");
 .cards {
-  font-family: 'Kumbh Sans', sans-serif;
-                                                
+  font-family: "Kumbh Sans", sans-serif;
+
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -11,12 +11,13 @@
 .card {
   position: relative;
   width: calc(30.33% - 20px);
-  height: 200px; 
+  height: 200px;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   overflow: hidden;
-  margin: 10px; 
-  transition: transform 0.3s ease-in-out;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
 }
 @media (max-width: 1000px) {
   .card {
@@ -33,7 +34,7 @@
   transform: scale(1.05);
 }
 .card.expanded {
-  height: auto;
+  height: fit-content;
 }
 
 .card-image {
@@ -59,7 +60,6 @@
   right: 0;
   color: white;
   padding: 5px 10px;
-
 }
 
 .card-category {
@@ -67,7 +67,7 @@
   top: 0;
   right: 0;
   margin: 4px 70px 0px 4px;
-  background-color: #00A538;
+  background-color: #00a538;
   color: white;
   padding: 5px 10px;
   border-radius: 0.35rem;
@@ -77,34 +77,71 @@
   position: absolute;
   top: 0;
   right: 0;
-  margin:4px;
-  background-color: #FF2F45;
+  margin: 4px;
+  background-color: #ff2f45;
   color: white;
   padding: 5px 10px;
   border-radius: 0.35rem;
 }
 
 .card-description {
-  transition: transform 0.3s ease-in-out;
   display: none;
-  padding: 10px;
-  background-color: #fff;
+  padding: 20px;
   opacity: 70%;
+  font-size: 16px;
 }
 
 .card.expanded .card-description {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card-addteam {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.card-addteam-add {
+  display: flex;
+  gap: 5px;
+}
+
+.card-addteam-input {
+  box-sizing: border-box;
+  width: 80%;
+  height: 20px;
+  padding: 2px 5px;
+  font-size: 16px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.card-addteam-button {
+  background-color: #00a538;
+  color: #fff;
+  width: 20%;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.card-addteam-added {
+  font-size: 14px;
+  color: #00a538;
 }
 
 /* Media query for mobile devices */
 @media screen and (max-width: 768px) {
   .cards {
-    flex-direction: column; 
-    align-items: center; 
-    margin-right:10px;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
   }
   .card {
-    width: 90%; 
-    margin: 10px 0; 
+    width: 90%;
+    margin: 10px 0;
   }
 }

@@ -47,6 +47,14 @@
   left: -6vw;
 }
 
+.herosection-badmintonguy {
+  position: absolute;
+  width: 22.3vw;
+  height: fit-content;
+  top: 9vw;
+  left: -3.5vw;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -101,6 +109,15 @@
   height: fit-content;
   top: 17.3vw;
   left: 88vw;
+  animation: fade 3s ease-in 1s infinite;
+}
+
+.herosection-beam5 {
+  position: absolute;
+  width: 1.7vw;
+  height: fit-content;
+  top: 32vw;
+  left: 69vw;
   animation: fade 3s ease-in 1s infinite;
 }
 

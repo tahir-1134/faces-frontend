@@ -31,34 +31,11 @@ const filteredCards = cards.filter((card) => {
     (selectedDay === "All" || card.day == selectedDay)
   );
 });
-    const arr = [{
-        id: 1,
-        day: 3,
-        type: "Sport",
-        name: "Badmintion (Singles)"
-    }, {
-        id: 2,
-        day: 3,
-        type: "Sport",
-        name: "Badmintion (Singles)"
-    }, {
-        id: 3,
-        day: 3,
-        type: "Sport",
-        name: "Badmintion (Singles)"
-    }, {
-        id: 4,
-        day: 3,
-        type: "Sport",
-        name: "Badmintion (Singles)"
-    }];
 
     const [verified, setVerfied] = useState(false);
     //PENDING : SET VERIFICATION STATUS
 
-    const showVerificationStatus = () => {
-        alert("Verification status: " + (verified ? "verified" : "not-verified"));
-    }
+
 
     return (
         <div className='profileSection'>
