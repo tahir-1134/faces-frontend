@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, history } from "react-router-dom";
 function Navbar() {
   const [mobileNav, setMobileNav] = useState(false);
   const [tokenExist, setTokenExist] = useState();
@@ -44,6 +44,8 @@ function Navbar() {
   function handleLogOut() {
     localStorage.removeItem('token');
     navigate('/');
+    window.history.pushState({}, document.title, '/');
+
 }
 
   console.log(windowStatus);
@@ -61,9 +63,6 @@ function Navbar() {
             </Link>
             <Link to="/profile">
               <p className="navbarLinks_link">Profile</p>
-            </Link>
-            <Link to="/checkout">
-              <p className="navbarLinks_link">Checkout</p>
             </Link>
 
             {
@@ -107,9 +106,7 @@ function Navbar() {
             <Link to="/profile">
               <li className="mobileNavbarOpenLink">Profile</li>
             </Link>
-            <Link to="/checkout">
-              <li className="mobileNavbarOpenLink">Checkout</li>
-            </Link>
+           
             {
               checkToken ? 
                 <li className="mobileNavbarOpenLink"onClick={handleLogOut}>Logout</li>

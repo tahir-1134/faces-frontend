@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { useAsyncError, useNavigate } from 'react-router-dom';
 import "./Login.css";
 import axios from 'axios';
 
@@ -12,6 +12,7 @@ function Login() {
     const [id, setId] = useState();
     const [password, setPassword] = useState();
     const navigate = useNavigate();
+    const [tokenExist, setTokenExist] = useState();
 
 
     
@@ -34,10 +35,7 @@ function Login() {
             localStorage.setItem('token', token);
             console.log(success);
             navigate('/home');
-            window.location.reload();
-
-            
-            
+            window.location.reload();            
 
         } catch (error) {
             if (error.response) {
@@ -47,6 +45,25 @@ function Login() {
             }
         }
     };
+
+    function checkToken() {
+        if (localStorage.getItem('token')) {
+            // Token exists, do something with it
+            setTokenExist(true);
+            const token = localStorage.getItem('token');
+            // console.log('Token exists:', token);
+
+            // You can use the token for authentication or perform other actions here
+        } else {
+            // Token does not exist in localStorage
+            setTokenExist(false);
+            console.log('You need to Login first');
+        }
+
+    }
+    useEffect(() => {
+        checkToken();
+    })
 
 
     return (
