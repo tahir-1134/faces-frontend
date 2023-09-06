@@ -6,7 +6,7 @@ function Footer() {
     <div className="footer">
       <p>Designed By: Agrima and Aniruddha</p>
       <p style={{ display: "flex", flexWrap: "wrap" }}>
-        Developed By: Aniket, Chandresh, Jayesh, Koustubh, Savio, Md Tahir
+        Developed By: Aniket, Chandresh, Jayesh, Mathew, Savio, Tahir
       </p>
     </div>
   );
