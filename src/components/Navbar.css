@@ -1,5 +1,5 @@
 .navbar {
-  height: 5vw;
+  height: 4vw;
   width: 90vw;
   display: flex;
   justify-content: space-between;
@@ -28,7 +28,7 @@
 .navbarLinks {
   font-family: "Kumbh Sans", sans-serif;
   display: flex;
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   gap: 3vw;
 }
 

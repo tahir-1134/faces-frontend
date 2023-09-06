@@ -4,13 +4,13 @@
   height: fit-content;
   background-color: rgba(67, 220, 192, 0.25);
   backdrop-filter: blur(20px);
-  padding: 2vw;
+  padding: 1vw 2vw;
   margin-top: 2vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Fredoka", sans-serif;
-  font-size: 1.6vw;
+  font-size: 1.3vw;
   gap: 30px;
   bottom: 0%;
 }

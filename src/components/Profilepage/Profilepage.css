@@ -203,7 +203,9 @@ background: transparent;
 }
 
 .eventVerification{
-    height: 35px;
+    height: 20px;
+    position: absolute;
+    margin-left: 5px;
 }
 
 /* .verificationStatus{
@@ -283,3 +285,19 @@ background: transparent;
         height: 35vw;
     }
 }
+
+.pp .card{
+    width: calc(100% - 20px);
+    /* height:150px; */
+}
+.pp .card-title{
+    bottom:unset;
+
+}
+/* .pp .card-title .verification-icon{
+    position:absolute;
+ bottom:0;
+} */
+/* .pp .card-image{
+    height:150px;
+} */

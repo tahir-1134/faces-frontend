@@ -19,10 +19,10 @@ function EventCards() {
       }
     }
 
-
-
     getEvents();
   }, []);
+
+
   const handleFilterChange = (event) => {
     setSelectedFilter(event.target.value);
   };
@@ -75,9 +75,8 @@ function EventCards() {
         </button>
       </div>
 
-
-      <Cards 
-        events={filterEvents} />
+   <Cards events={filterEvents} isVerified={null} />
+     
     </div>
   );
 }
