@@ -32,11 +32,8 @@ function Navbar() {
             <Link to="/profile">
               <p className="navbarLinks_link">Profile</p>
             </Link>
-            <Link to="/checkout">
-              <p className="navbarLinks_link">Checkout</p>
-            </Link>
             <Link to="/login">
-              <p className="navbarLinks_link">Logout</p>
+              <p className="navbarLinks_link">Login</p>
             </Link>
           </div>
         </div>
@@ -72,11 +69,8 @@ function Navbar() {
             <Link to="/profile">
               <li className="mobileNavbarOpenLink">Profile</li>
             </Link>
-            <Link to="/checkout">
-              <li className="mobileNavbarOpenLink">Checkout</li>
-            </Link>
             <Link to="/login">
-              <li className="mobileNavbarOpenLink">Logout</li>
+              <li className="mobileNavbarOpenLink">Login</li>
             </Link>
           </ul>
         </div>

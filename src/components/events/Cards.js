@@ -7,7 +7,12 @@ function Cards({ filteredCards }) {
   const [addedIds, setAddedIds] = useState([]);
 
   const handleCardClick = (cardId) => {
-    setExpandedCardId(cardId);
+    if (expandedCardId === cardId) {
+      setExpandedCardId(null);
+    } else {
+      setExpandedCardId(cardId);
+    }
+    setAddedIds([]);
   };
 
   return (
@@ -18,11 +23,11 @@ function Cards({ filteredCards }) {
           className={`card ${
             expandedCardId === card.event_code ? "expanded" : ""
           }`}
-          onClick={() => handleCardClick(card.event_code)}
         >
           <div
             className="card-image"
             style={{ backgroundImage: `url(${card.image})` }}
+            onClick={() => handleCardClick(card.event_code)}
           >
             <div className="card-title">{card.title}</div>
             <div className="card-timing">{`${card.start} - ${card.end}`}</div>
@@ -54,8 +59,25 @@ function Cards({ filteredCards }) {
                 <button
                   className="card-addteam-button"
                   onClick={() => {
-                    setAddedIds([...addedIds, inputId]);
-                    setInputId("");
+                    let flag = 1;
+                    if (
+                      isNaN(inputId) ||
+                      inputId === "" ||
+                      inputId.length < 7
+                    ) {
+                      alert("Enter a valid id!");
+                    } else {
+                      addedIds.forEach((id) => {
+                        if (id === inputId) {
+                          alert("Duplicate Ids are not allowed");
+                          flag = 0;
+                        }
+                      });
+                      if (flag) {
+                        setAddedIds([...addedIds, inputId]);
+                        setInputId("");
+                      }
+                    }
                   }}
                 >
                   Add
