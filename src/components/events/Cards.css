@@ -144,13 +144,13 @@
   border: none;
   border-radius: 5px;
   font-size: 14px;
-  position:absolute;
-  right:0;
-  padding:2px;
-  margin-right:5px;
+  position: absolute;
+  right: 0;
+  padding: 2px;
+  margin-right: 5px;
 }
-.register-div{
-  margin:7px;
+.register-div {
+  margin: 7px;
 }
 /* Media query for mobile devices */
 @media screen and (max-width: 768px) {
