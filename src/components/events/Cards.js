@@ -10,7 +10,7 @@ function Cards({ filteredCards, isVerified }) {
     setExpandedCardId(cardId);
   };
   const showVerificationStatus = () => {
-    alert("Verification status: " + (verified ? "verified" : "not-verified"));
+    alert("Verification status: " + (isVerified ? "verified" : "not-verified"));
 }
   // Function to render the verification icon based on the verification status
   const renderVerificationIcon = (isVerified) => {
