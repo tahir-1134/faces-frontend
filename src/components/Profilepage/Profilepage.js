@@ -60,6 +60,7 @@ function Profilepage() {
                             </div>
                         ))}
                     </div>
+                    <button className="ProfileSubmit" type='submit'>SUBMIT</button>
                 </div>
             </div>
             <Sponsors />

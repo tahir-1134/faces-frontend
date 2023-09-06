@@ -13,7 +13,7 @@ function Navbar() {
       // Token exists, do something with it
       setTokenExist(true);
       const token = localStorage.getItem('token');
-      console.log('Token exists:', token);
+      // console.log('Token exists:', token);
 
       // You can use the token for authentication or perform other actions here
     } else {

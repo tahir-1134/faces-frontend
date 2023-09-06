@@ -108,6 +108,7 @@ background: transparent;
     color: #FEFEF7;
     padding: 10px 25px;
     margin: auto;
+    margin-bottom: 10px;
 }
 
 .ProfileSubmit:hover{
