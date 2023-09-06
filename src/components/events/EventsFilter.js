@@ -1,13 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./EventsFilter.css";
 import cardData from "./cardsData.json";
 import Cards from "./Cards"; // Import the Cards component
+import axios from "axios";
 
 function EventCards() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [selectedDay, setSelectedDay] = useState("All");
-  const [cards, setCards] = useState(cardData);
+  const [events, SetEvents] = useState();
+  useEffect(() => {
+    const getEvents = async () => {
+      try {
+        const res = await axios.get('http://127.0.0.1:8000/api/e/');
+        SetEvents(res.data.events);
+        console.log(res.data.events);
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
+
+
+    getEvents();
+  }, []);
   const handleFilterChange = (event) => {
     setSelectedFilter(event.target.value);
   };
@@ -21,10 +36,10 @@ function EventCards() {
     setSelectedDay("All");
   };
 
-  const filteredCards = cards.filter((card) => {
+  const filterEvents = events?.filter((card) => {
     return (
-      (selectedFilter === "All" || card.category === selectedFilter) &&
-      (selectedDay === "All" || card.day === selectedDay)
+      (selectedFilter === "All" || card.category == selectedFilter) &&
+      (selectedDay === "All" || card.day == selectedDay)
     );
   });
 
@@ -50,9 +65,9 @@ function EventCards() {
             className="custom-select"
           >
             <option value="All">Category</option>
-            <option value="Cultural">Cultural</option>
-            <option value="Sports">Sports</option>
-            <option value="Seminar">Seminar</option>
+            <option value="C">Cultural</option>
+            <option value="S">Sports</option>
+            <option value="T">Seminar</option>
           </select>
         </label>
         <button className="reset-button" onClick={handleReset}>
@@ -60,8 +75,9 @@ function EventCards() {
         </button>
       </div>
 
-    
-      <Cards filteredCards={filteredCards} />
+
+      <Cards 
+        events={filterEvents} />
     </div>
   );
 }

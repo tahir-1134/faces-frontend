@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cards.css";
+import axios from "axios";
 
-function Cards({ filteredCards }) {
+function Cards({ filteredCards, events }) {
   const [expandedCardId, setExpandedCardId] = useState(null);
+  
 
   const handleCardClick = (cardId) => {
     if (expandedCardId === cardId) {
@@ -14,7 +16,7 @@ function Cards({ filteredCards }) {
 
   return (
     <div className="cards">
-      {filteredCards.map((card) => (
+      {events?.map((card) => (
         <div
           key={card.event_code}
           className={`card ${expandedCardId === card.event_code ? "expanded" : ""}`}
@@ -28,7 +30,7 @@ function Cards({ filteredCards }) {
             <div className="card-timing">
               {`${card.start} - ${card.end}`}
             </div>
-            <div className="card-category">{card.category}</div>
+            <div className="card-category">{card.category === 'T' && 'Seminar' || card.category === 'C' && 'Cultural' || card.category === 'S' && 'Sports'}</div>
             <div className="card-day">Day {card.day}</div>
           </div>
           <div className={`card-description ${expandedCardId === card.event_code ? "show" : "hide"}`}>
