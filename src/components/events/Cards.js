@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Cards.css";
 
-function Cards({ filteredCards }) {
+function Cards({ filteredCards, isVerified, onRegisterClick }) {
   const [expandedCardId, setExpandedCardId] = useState(null);
   const [inputId, setInputId] = useState();
   const [addedIds, setAddedIds] = useState([]);
-
+  const handleRegisterClick = (card) => {
+    onRegisterClick(card); // Pass the card data to the parent component
+  };
   const handleCardClick = (cardId) => {
     if (expandedCardId === cardId) {
       setExpandedCardId(null);
@@ -13,6 +15,21 @@ function Cards({ filteredCards }) {
       setExpandedCardId(cardId);
     }
     setAddedIds([]);
+  };
+  const showVerificationStatus = () => {
+    alert("Verification status: " + (isVerified ? "verified" : "not-verified"));
+}
+  // Function to render the verification icon based on the verification status
+  const renderVerificationIcon = (isVerified) => {
+    if (isVerified === null) {
+      return null; // Don't display any icon if verification status is null
+    } else if (isVerified) {
+      return <img src={require("../../images/verified.png")} alt="name" className='eventVerification' onClick={showVerificationStatus}
+      />; // Display a tick icon for true
+    } else {
+      return <img src={require("../../images/unverified.png")} alt="name"
+      className='eventVerification' onClick={showVerificationStatus} />; // Display a cross icon for false
+    }
   };
 
   return (
@@ -29,8 +46,13 @@ function Cards({ filteredCards }) {
             style={{ backgroundImage: `url(${card.image})` }}
             onClick={() => handleCardClick(card.event_code)}
           >
-            <div className="card-title">{card.title}</div>
-            <div className="card-timing">{`${card.start} - ${card.end}`}</div>
+            <div className="card-title">
+              {card.title} 
+           {renderVerificationIcon(isVerified)}
+            </div>
+            <div className="card-timing">
+              {`${card.start} - ${card.end}`}
+            </div>
             <div className="card-category">{card.category}</div>
             <div className="card-day">Day {card.day}</div>
           </div>
@@ -106,6 +128,10 @@ function Cards({ filteredCards }) {
                 ))}
               </span>
             </div>
+            <div className="register-div">                
+            <button className="register-button" onClick={() => handleRegisterClick(card)}>
+                  Register
+                </button></div>
           </div>
         </div>
       ))}
