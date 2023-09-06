@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./Cards.css";
 
-function Cards({ filteredCards, isVerified }) {
+function Cards({ filteredCards, isVerified, onRegisterClick }) {
   const [expandedCardId, setExpandedCardId] = useState(null);
   const [inputId, setInputId] = useState();
   const [addedIds, setAddedIds] = useState([]);
-
+  const handleRegisterClick = (card) => {
+    onRegisterClick(card); // Pass the card data to the parent component
+  };
   const handleCardClick = (cardId) => {
     setExpandedCardId(cardId);
   };
@@ -17,9 +19,11 @@ function Cards({ filteredCards, isVerified }) {
     if (isVerified === null) {
       return null; // Don't display any icon if verification status is null
     } else if (isVerified) {
-      return <span className="verification-icon">&#10004;</span>; // Display a tick icon for true
+      return <img src={require("../../images/verified.png")} alt="name" className='eventVerification' onClick={showVerificationStatus}
+      />; // Display a tick icon for true
     } else {
-      return <span className="verification-icon">&#10006;</span>; // Display a cross icon for false
+      return <img src={require("../../images/unverified.png")} alt="name"
+      className='eventVerification' onClick={showVerificationStatus} />; // Display a cross icon for false
     }
   };
 
@@ -39,9 +43,7 @@ function Cards({ filteredCards, isVerified }) {
           >
             <div className="card-title">
               {card.title} 
-              {isVerified ? <img src={require("../../images/verified.png")} alt="name" className='eventVerification' onClick={showVerificationStatus}
-                                    /> : <img src={require("../../images/unverified.png")} alt="name"
-                                        className='eventVerification' onClick={showVerificationStatus} />}
+           {renderVerificationIcon(isVerified)}
             </div>
             <div className="card-timing">
               {`${card.start} - ${card.end}`}
@@ -104,6 +106,10 @@ function Cards({ filteredCards, isVerified }) {
                 ))}
               </span>
             </div>
+            <div className="register-div">                
+            <button className="register-button" onClick={() => handleRegisterClick(card)}>
+                  Register
+                </button></div>
           </div>
         </div>
       ))}

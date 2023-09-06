@@ -132,7 +132,22 @@
   font-size: 14px;
   color: #00a538;
 }
-
+.register-button {
+  background-color: #00a538;
+  color: #fff;
+  width: 20%;
+  height: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  position:absolute;
+  right:0;
+  padding:2px;
+  margin-right:5px;
+}
+.register-div{
+  margin:7px;
+}
 /* Media query for mobile devices */
 @media screen and (max-width: 768px) {
   .cards {
