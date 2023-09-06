@@ -1,10 +1,14 @@
+*{
+  font-family: "Kumbh Sans", "sans-serif";
+}
+
 .image-container {
   display: flex;
   flex-direction: column; 
-  padding: 20px; 
-  margin: 20px; 
+  padding: 1.3vw; 
+  margin: 1.3vw;
 
-  @media (min-width: 768px) {
+  @media (max-width: 750px) {
     flex-direction: row;
   }
 }
@@ -12,20 +16,20 @@
 .image {
   max-width: 100%;
   height: auto; 
-  margin: 10px; 
+  margin: 0.6vw; 
   width: 80vw; 
   transition: width 0.3s; 
 
-  @media (min-width: 768px) {
+  @media (max-width: 750px) {
     width: 40vw; 
   }
 }
 
 .left-image {
   order: 1; 
-  margin-top:10px;
-  margin-left:10px;
-  @media (min-width: 768px) {
+  margin-top:0.6vw;
+  margin-left:0.6vw;
+  @media (max-width: 768px) {
     order: 0; 
   }
 }
@@ -34,9 +38,83 @@
   order: 2; 
   position: unset;
 
-  @media (min-width: 768px) {
+  @media (max-width: 750px) {
     position:absolute;
     right:0;
     order: 0; 
+  }
+}
+
+.image-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.square{
+    border: 2px solid black;
+    border-radius: 3.6vw;
+    width: 45vw;
+
+    @media (max-width: 750px) {
+      border-radius: 30px;
+      width: 82vw;
+    }
+}
+
+.disclaimer-text{
+    background-color: #FEFEF7;
+    font-size: xx-large;
+    width: 46vw;
+    border-radius: 3.6vw;
+    position: relative;
+    left: 1.7vw;
+    top: 1.6vw;
+    box-sizing: border-box;
+    padding: 1.3vw 1.3vw 1vw 1.3vw;
+
+    @media (max-width: 750px) {
+      width: 86.3vw;
+      border-radius: 30px;
+      left: 4vw;
+      top: 3vw;
+      padding: 3vw;
+    }
+}
+
+.square-wrapper{
+  position: relative;
+    top: 10.3vw;
+    left: 6.3vw;
+    width: 44,2vw;
+    height: 35,8vw;
+
+    @media (max-width: 750px) {
+    top: 20vw;
+    left: 5vw;
+    }
+}
+
+li{
+  font-size: large;
+
+  @media (max-width: 750px) {
+    font-size: 14px;
+  }
+}
+
+p,h1{
+  font-size: x-large;
+
+  @media (max-width: 750px) {
+    font-size: 16px;
+  }
+}
+
+.image-div img{
+
+  @media (max-width: 750px) {
+    height: 126vw;
+    margin-top: 13.7vw; 
   }
 }

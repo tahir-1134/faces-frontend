@@ -2,13 +2,20 @@ import React, { useState, useEffect } from "react";
 import "./Cards.css";
 import axios from "axios";
 
-function Cards({ filteredCards, isVerified , events}) {
+function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
   const [expandedCardId, setExpandedCardId] = useState(null);
   const [inputId, setInputId] = useState();
   const [addedIds, setAddedIds] = useState([]);
-
+  const handleRegisterClick = (card) => {
+    onRegisterClick(card); // Pass the card data to the parent component
+  };
   const handleCardClick = (cardId) => {
-    setExpandedCardId(cardId);
+    if (expandedCardId === cardId) {
+      setExpandedCardId(null);
+    } else {
+      setExpandedCardId(cardId);
+    }
+    setAddedIds([]);
   };
   const showVerificationStatus = () => {
     alert("Verification status: " + (isVerified ? "verified" : "not-verified"));
@@ -18,9 +25,11 @@ function Cards({ filteredCards, isVerified , events}) {
     if (isVerified === null) {
       return null; // Don't display any icon if verification status is null
     } else if (isVerified) {
-      return <span className="verification-icon">&#10004;</span>; // Display a tick icon for true
+      return <img src={require("../../images/verified.png")} alt="name" className='eventVerification' onClick={showVerificationStatus}
+      />; // Display a tick icon for true
     } else {
-      return <span className="verification-icon">&#10006;</span>; // Display a cross icon for false
+      return <img src={require("../../images/unverified.png")} alt="name"
+      className='eventVerification' onClick={showVerificationStatus} />; // Display a cross icon for false
     }
   };
 
@@ -32,17 +41,15 @@ function Cards({ filteredCards, isVerified , events}) {
           className={`card ${
             expandedCardId === card.event_code ? "expanded" : ""
           }`}
-          onClick={() => handleCardClick(card.event_code)}
         >
           <div
             className="card-image"
             style={{ backgroundImage: `url(${card.image})` }}
+            onClick={() => handleCardClick(card.event_code)}
           >
             <div className="card-title">
               {card.title} 
-              {isVerified ? <img src={require("../../images/verified.png")} alt="name" className='eventVerification' onClick={showVerificationStatus}
-                                    /> : <img src={require("../../images/unverified.png")} alt="name"
-                                        className='eventVerification' onClick={showVerificationStatus} />}
+           {renderVerificationIcon(isVerified)}
             </div>
             <div className="card-timing">
               {`${card.start} - ${card.end}`}
@@ -75,8 +82,25 @@ function Cards({ filteredCards, isVerified , events}) {
                 <button
                   className="card-addteam-button"
                   onClick={() => {
-                    setAddedIds([...addedIds, inputId]);
-                    setInputId("");
+                    let flag = 1;
+                    if (
+                      isNaN(inputId) ||
+                      inputId === "" ||
+                      inputId.length < 7
+                    ) {
+                      alert("Enter a valid id!");
+                    } else {
+                      addedIds.forEach((id) => {
+                        if (id === inputId) {
+                          alert("Duplicate Ids are not allowed");
+                          flag = 0;
+                        }
+                      });
+                      if (flag) {
+                        setAddedIds([...addedIds, inputId]);
+                        setInputId("");
+                      }
+                    }
                   }}
                 >
                   Add
@@ -105,6 +129,10 @@ function Cards({ filteredCards, isVerified , events}) {
                 ))}
               </span>
             </div>
+            <div className="register-div">                
+            <button className="register-button" onClick={() => handleRegisterClick(card)}>
+                  Register
+                </button></div>
           </div>
         </div>
       ))}

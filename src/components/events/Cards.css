@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  /* justify-content: center;  */
+  /* justify-content: center; */
 }
 
 .card {
@@ -88,7 +88,7 @@
   display: none;
   padding: 20px;
   opacity: 70%;
-  font-size: 16px;
+  font-size: 1.25rem;
 }
 
 .card.expanded .card-description {
@@ -103,6 +103,10 @@
   gap: 5px;
 }
 
+.card-addteam > p {
+  font-size: 1.25rem;
+}
+
 .card-addteam-add {
   display: flex;
   gap: 5px;
@@ -111,9 +115,9 @@
 .card-addteam-input {
   box-sizing: border-box;
   width: 80%;
-  height: 20px;
+  height: 2rem;
   padding: 2px 5px;
-  font-size: 16px;
+  font-size: 1.25rem;
   border: 1px solid gray;
   border-radius: 5px;
 }
@@ -122,17 +126,32 @@
   background-color: #00a538;
   color: #fff;
   width: 20%;
+  height: 2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.card-addteam-added {
+  font-size: 1rem;
+  color: #00a538;
+}
+.register-button {
+  background-color: #00a538;
+  color: #fff;
+  width: 20%;
   height: 20px;
   border: none;
   border-radius: 5px;
   font-size: 14px;
+  position: absolute;
+  right: 0;
+  padding: 2px;
+  margin-right: 5px;
 }
-
-.card-addteam-added {
-  font-size: 14px;
-  color: #00a538;
+.register-div {
+  margin: 7px;
 }
-
 /* Media query for mobile devices */
 @media screen and (max-width: 768px) {
   .cards {
