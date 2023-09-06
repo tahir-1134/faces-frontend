@@ -32,7 +32,17 @@ function Login() {
             // Successful login logic (e.g., save token, redirect)
             const token = response.data.token;
             const success = response.success;
+            const roll_no = response.data.user.roll_no;
+            const name = response.data.user.name;
+            const parts = response.data.user.participations;
+            // console.log(parts);
+            const participations=JSON.stringify(parts)
+            console.log(participations);
             localStorage.setItem('token', token);
+            localStorage.setItem('roll_no', roll_no);
+            localStorage.setItem('name', name);
+            localStorage.setItem('participations', participations);
+
             console.log(success);
             navigate('/home');
             window.location.reload();            

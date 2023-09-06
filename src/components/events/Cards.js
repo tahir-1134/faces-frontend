@@ -1,14 +1,69 @@
 import React, { useState, useEffect } from "react";
 import "./Cards.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
+function Cards({  isVerified , events, onRegisterClick}) {
   const [expandedCardId, setExpandedCardId] = useState(null);
   const [inputId, setInputId] = useState();
-  const [addedIds, setAddedIds] = useState([]);
-  const handleRegisterClick = (card) => {
-    onRegisterClick(card); // Pass the card data to the parent component
+  const [addedIds, setAddedIds] = useState();
+  const [token, setToken] = useState();
+  const [tokenExist, setTokenExist] = useState();
+  const [name, setName] = useState();
+  const navigate = useNavigate();
+
+  function checkToken() {
+    if (localStorage.getItem('token')) {
+      // Token exists, do something with it
+       setTokenExist(true);
+      const token = localStorage.getItem('token');
+      setToken(token)
+      // console.log('Token exists:', token);
+
+      // You can use the token for authentication or perform other actions here
+    } else {
+      // Token does not exist in localStorage
+      setTokenExist(false);
+      console.log('You need to Login first');
+    }
+
+  }
+  useEffect(() => {
+    checkToken();
+  })
+
+
+
+
+  const handleRegisterClick = async (event_code) => {
+    try {
+
+      const headers = {
+        Authorization: `token ${token}`,
+        'Content-Type': 'application/json', 
+      }
+      console.log(addedIds);
+      const response = await axios.post('http://127.0.0.1:8000/api/e/register/', { "event_code":event_code, "team_name": name}, {
+        headers
+});
+      // Successful login logic (e.g., save token, redirect)
+
+    } catch (error) {
+      if (error.response.data) {
+        alert(error.response.data.detail); // Show error message in alert
+      } else {
+        console.log(error); // Fallback error message
+      }
+    }
   };
+
+
+
+
+
+ 
+
+
   const handleCardClick = (cardId) => {
     if (expandedCardId === cardId) {
       setExpandedCardId(null);
@@ -17,9 +72,14 @@ function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
     }
     setAddedIds([]);
   };
+
+
   const showVerificationStatus = () => {
     alert("Verification status: " + (isVerified ? "verified" : "not-verified"));
-}
+  }
+  
+
+
   // Function to render the verification icon based on the verification status
   const renderVerificationIcon = (isVerified) => {
     if (isVerified === null) {
@@ -32,6 +92,8 @@ function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
       className='eventVerification' onClick={showVerificationStatus} />; // Display a cross icon for false
     }
   };
+
+
 
   return (
     <div className="cards">
@@ -49,7 +111,7 @@ function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
           >
             <div className="card-title">
               {card.title} 
-           {renderVerificationIcon(isVerified)}
+           {renderVerificationIcon(card.isVerified)}
             </div>
             <div className="card-timing">
               {`${card.start} - ${card.end}`}
@@ -63,14 +125,29 @@ function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
             }`}
           >
             <div> Event Description: {card.description} </div>
-            <div> Max seats: {card.max_seats} </div>
+            <div> Seats Booked: {card.seats} /{ card.max_seats} </div>
             <div> Entry seats: {card.entry_fee} </div>
             <div> Prize Money: {card.prize_money} </div>
+            <div>whatsapp_link:{card.whatsapp_link}</div>
+            <div> Team Size: {card.team_size} </div>
             <div className="card-addteam">
-              <p>Add Team Members:</p>
-              <span className="card-addteam-add">
+                        
+              {card.team_size > 1 ? <>
+                <p>Add Team Name:</p>
                 <input
                   type="text"
+                  className="card-addteam-input"
+                  placeholder="Name"
+                  name="addteam"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+                 <p>Add Team Members' roll numbers (one by one):</p>
+              <span className="card-addteam-add">
+                  <input
+                  type="number"
                   className="card-addteam-input"
                   placeholder="Roll number"
                   name="addteam"
@@ -105,7 +182,18 @@ function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
                 >
                   Add
                 </button>
-              </span>
+                </span></> : <>
+                <p>Enter Your Name:</p>
+                <input
+                  type="text"
+                  className="card-addteam-input"
+                  placeholder="Name"
+                  name="addteam"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                /></>}
               <span className="card-addteam-added">
                 {addedIds?.map((id) => (
                   <span
@@ -130,7 +218,7 @@ function Cards({ filteredCards, isVerified , events, onRegisterClick}) {
               </span>
             </div>
             <div className="register-div">                
-            <button className="register-button" onClick={() => handleRegisterClick(card)}>
+            <button className="register-button" onClick={() => handleRegisterClick(card.event_code)}>
                   Register
                 </button></div>
           </div>
