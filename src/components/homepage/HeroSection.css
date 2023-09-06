@@ -5,12 +5,6 @@
   width: 100%;
 }
 
-/* .herosection-container {
-  clip-path: path(
-    "M0 0H1440V600.732L1325.84 687.161C973.928 953.594 488.955 957.788 132.487 697.48L0 600.732V0Z"
-  );
-} */
-
 .herosection-background {
   width: 100%;
   position: relative;
@@ -18,50 +12,249 @@
   left: 0;
   z-index: 0;
 }
-/*
-.herosection-badmintonguy {
-  width: 21vw;
+
+.herosection-football {
   position: absolute;
-  top: 2.75vw;
-  left: -1.25vw;
-  z-index: 1;
-  transform: scale(0.9);
+  width: 7.2vw;
+  height: fit-content;
+  top: 38vw;
+  left: 32vw;
+  animation: spin 2s linear infinite;
+}
+
+.herosection-basketball {
+  position: absolute;
+  width: 5.2vw;
+  height: fit-content;
+  top: 24.5vw;
+  left: 7.5vw;
+  animation: spin 2s linear infinite;
 }
 
 .herosection-basketballguy {
-  width: 28.5vw;
   position: absolute;
-  top: 18vw;
-  left: 8vw;
-  z-index: 1;
+  width: 30.5vw;
+  height: fit-content;
+  top: 25vw;
+  left: 7.2vw;
 }
 
 .herosection-footballguy {
-  width: 44.5vw;
   position: absolute;
-  top: 23vw;
-  left: -4vw;
-  transform: scale(0.8);
-  z-index: 1;
-} */
+  width: 40vw;
+  height: fit-content;
+  top: 28.9vw;
+  left: -6vw;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(72deg);
+  }
+  40% {
+    transform: rotate(144deg);
+  }
+  60% {
+    transform: rotate(216deg);
+  }
+  80% {
+    transform: rotate(288deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.herosection-beam1 {
+  position: absolute;
+  width: 1.7vw;
+  height: fit-content;
+  top: 42vw;
+  left: 72vw;
+  animation: fade 3s ease-in 1s infinite;
+}
+
+.herosection-beam2 {
+  position: absolute;
+  width: 1.4vw;
+  height: fit-content;
+  top: 43vw;
+  left: 76vw;
+  animation: fade 3s ease-in infinite;
+}
+
+.herosection-beam3 {
+  position: absolute;
+  width: 2.5vw;
+  height: fit-content;
+  top: 21vw;
+  left: 85vw;
+  animation: fade 3s ease-in 500ms infinite;
+}
+
+.herosection-beam4 {
+  position: absolute;
+  width: 2.5vw;
+  height: fit-content;
+  top: 17.3vw;
+  left: 88vw;
+  animation: fade 3s ease-in 1s infinite;
+}
+
+.herosection-clef {
+  position: absolute;
+  width: 4vw;
+  height: fit-content;
+  top: 33vw;
+  left: 92vw;
+  animation: fade 3s ease-in 2s infinite;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-75px);
+    opacity: 1;
+  }
+}
+
+.herosection-hoop1 {
+  position: absolute;
+  width: 17.5vw;
+  height: auto;
+  top: 22vw;
+  left: 72vw;
+  animation: spin 2s linear infinite;
+}
+
+.herosection-hoop2 {
+  position: absolute;
+  width: 2.75vw;
+  height: auto;
+  top: 35vw;
+  left: 90vw;
+  animation: spin 2s linear infinite;
+}
+
+.herosection-hoop3 {
+  position: absolute;
+  width: 2vw;
+  height: auto;
+  top: 15vw;
+  left: 92vw;
+  animation: spin 2s linear infinite;
+}
+
+.herosection-guitar {
+  position: absolute;
+  width: 11vw;
+  height: fit-content;
+  top: 41.5vw;
+  left: 69.5vw;
+  animation: shiver 1s linear infinite;
+}
+
+.herosection-keyboard {
+  position: absolute;
+  width: 6vw;
+  height: fit-content;
+  top: 31.25vw;
+  left: 69.5vw;
+  animation: shiver 1s linear infinite;
+}
+
+.herosection-tape {
+  position: absolute;
+  width: 6vw;
+  height: fit-content;
+  top: 21vw;
+  left: 86vw;
+  animation: shiver 1s linear infinite;
+}
+
+@keyframes shiver {
+  0% {
+    transform: rotate(3deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(3deg);
+  }
+}
+
+.herosection-boy {
+  position: absolute;
+  width: 17vw;
+  height: fit-content;
+  top: 12.5vw;
+  left: 70vw;
+  animation: boy 3s linear infinite;
+}
+
+@keyframes boy {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.herosection-girl1 {
+  position: absolute;
+  width: 10.3vw;
+  height: fit-content;
+  top: 27.5vw;
+  left: 80vw;
+  animation: girl1 3s linear infinite;
+}
+
+@keyframes girl1 {
+  0% {
+    transform: rotate(-15deg);
+  }
+
+  50% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
+
 .ehsaas-block {
   margin: auto;
   max-width: fit-content;
-  font-family: 'Bigshot One', cursive;
+  font-family: "Bigshot One", cursive;
   font-size: 14.47vw;
-  color:#E5FCFF;
+  color: #e5fcff;
   height: 6vw;
   display: flex;
   position: absolute;
   align-items: center;
-  top:22vw;
+  top: 22vw;
   left: 28vw;
+  z-index: 5;
 }
 @media screen and (max-width: 650px) {
   .ehsaas-block {
-  height: 2vw;  }
+    height: 2vw;
+  }
 }
-.ehsaas-char{
+.ehsaas-char {
   animation-duration: 2s;
   animation-iteration-count: infinite;
 }
@@ -69,7 +262,7 @@
 .bounce-3 {
   animation-name: bounce-3;
   animation-timing-function: ease;
-  text-shadow: -0.43vw 0.489vw #5FC5FF,-1.5177vw 0.489vw #003459;
+  text-shadow: -0.43vw 0.489vw #5fc5ff, -1.5177vw 0.489vw #003459;
 }
 
 @keyframes bounce-3 {
@@ -89,21 +282,21 @@
     transform: translateY(0);
   }
 }
-#E{
+#E {
   animation-delay: 0;
 }
-#h{
-    animation-delay: 200ms;
+#h {
+  animation-delay: 200ms;
 }
 #s {
   animation-delay: 100ms;
 }
-#a{
+#a {
   animation-delay: 300ms;
 }
-#a{
+#a {
   animation-delay: 500ms;
 }
-#s{
+#s {
   animation-delay: 400ms;
 }
