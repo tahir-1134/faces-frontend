@@ -43,6 +43,13 @@ function Navbar() {
   
   function handleLogOut() {
     localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    localStorage.removeItem('name')
+    localStorage.removeItem('roll_no')
+    localStorage.removeItem('layer')
+    localStorage.removeItem('userpassword')
+    localStorage.removeItem('participations');
+          
     navigate('/');
     window.history.pushState({}, document.title, '/');
 

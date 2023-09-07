@@ -8,6 +8,8 @@ function EventCards() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [selectedDay, setSelectedDay] = useState("All");
   const [events, SetEvents] = useState();
+
+
   useEffect(() => {
     const getEvents = async () => {
       try {
@@ -38,6 +40,7 @@ function EventCards() {
 
   const filterEvents = events?.filter((card) => {
     return (
+      
       (selectedFilter === "All" || card.category == selectedFilter) &&
       (selectedDay === "All" || card.day == selectedDay)
     );

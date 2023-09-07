@@ -35,6 +35,8 @@ function Login() {
             const roll_no = response.data.user.roll_no;
             const name = response.data.user.name;
             const parts = response.data.user.participations;
+            const email = response.data.user.email;
+            const userpassword=response.data.user.userpassword
             // console.log(parts);
             const participations=JSON.stringify(parts)
             console.log(participations);
@@ -42,6 +44,8 @@ function Login() {
             localStorage.setItem('roll_no', roll_no);
             localStorage.setItem('name', name);
             localStorage.setItem('participations', participations);
+            localStorage.setItem('email', email);
+            localStorage.setItem('userpassword', userpassword);
 
             console.log(success);
             navigate('/home');

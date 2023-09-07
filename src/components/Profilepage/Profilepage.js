@@ -18,6 +18,44 @@ const [tokenExist, setTokenExist] = useState();
   const [isVerified, setIsverified]=useState(false)
   
 
+
+
+  const handleLogin = async () => {
+    const id = localStorage.getItem('roll_no');
+    const password = localStorage.getItem('userpassword');
+    try {
+      const response = await axios.post('http://127.0.0.1:8000/api/u/auth/login/', { "username": id, password });
+      // Successful login logic (e.g., save token, redirect)
+      const token = response.data.token;
+      const success = response.success;
+      const roll_no = response.data.user.roll_no;
+      const name = response.data.user.name;
+      const parts = response.data.user.participations;
+      const email = response.data.user.email;
+      const userpassword = response.data.user.userpassword
+      // console.log(parts);
+      const participations = JSON.stringify(parts)
+      console.log(participations);
+      localStorage.setItem('token', token);
+      localStorage.setItem('roll_no', roll_no);
+      localStorage.setItem('name', name);
+      localStorage.setItem('participations', participations);
+      localStorage.setItem('email', email);
+      localStorage.setItem('userpassword', userpassword);
+
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response); // Show error message in alert
+      } else {
+        alert('An error occurred'); // Fallback error message
+      }
+    }
+  };
+  useEffect(() => {
+    handleLogin();
+
+  })
+
  
  
   
@@ -93,24 +131,27 @@ const filteredCards = events?.filter((card) => {
 
   const handleCheckOut = async () => {
     try {
+      if (window.confirm("do you want to checkout, You cannot unregister after checking out")) {
+
       const headers = {
-        'Authorization': `token ${token}`,
+        Authorization: `token ${token}`,
         'Content-Type': 'application/json',
       }
-      console.log(cards)
-      const response = await axios.post('http://127.0.0.1:8000/api/e/register/', { "participations": (JSON.stringify(cards)), "upi_transaction_id": "VADE0CB248932" }, {
-        headers
-      });
-      alert(response);
-      // Successful login logic (e.g., save token, redirect)
-
-    } catch (error) {
-      if (error.response) {
-        console.log(error); // Show error message in alert
-      } else {
-        alert(error); // Fallback error message
+        console.log(cards)
+        const response = await axios.post('http://127.0.0.1:8000/api/u/checkout/', { "participations": cards, "upi_transaction_id": "VADE0CB248932" }, {
+          headers
+        });
+        alert("Checked Out successfully");
+        // Successful login logic (e.g., save token, redirect)
       }
-    }
+      } catch (error) {
+        if (error.response) {
+          console.log(error); // Show error message in alert
+        } else {
+          alert(error); // Fallback error message
+        }
+      }
+    
     
 }
 
@@ -120,7 +161,7 @@ const filteredCards = events?.filter((card) => {
         <div className='profileSection'>
             <Navbar />
             <div className="profileMenu">
-                <ProfileInformation />
+                {/* <ProfileInformation /> */}
                 <div className='myRegisteredEvents'>
                     <h1>Your Registrations</h1>
                     <div className="registeredEvents">

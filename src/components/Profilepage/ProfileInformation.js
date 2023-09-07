@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 
 function ProfileInformation() {
+
+
+
     const [details, setDetails] = useState(
         {
             "firstName": "",
@@ -77,7 +80,7 @@ function ProfileInformation() {
                     <input type="password" placeholder='confirm password' className='profileEnterName' onChange={handlesetDetails} value={details.confirmPassword} name='confirmPassword'
                     />
                 </div>
-                <button className="ProfileSubmit" type='submit'>Submit</button>
+                {/* <button className="ProfileSubmit" type='submit'>Submit</button> */}
             </div>
         </form>
     )
