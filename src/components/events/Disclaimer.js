@@ -22,7 +22,7 @@ function Disclaimer() {
                   <li>All students will receive your credentials via mail directly.</li>
                   <li>
                     Once you have chosen your event and registered for the events, you
-                    can see the registered events on the profile page and you can
+                    can see the registered events on the checkout page and you can
                     remove them if you want.
                   </li>
                   <li>
@@ -31,8 +31,8 @@ function Disclaimer() {
                     <strong>FIRST COME FIRST SERVE basis.</strong>
                   </li>
                   <li>
-                    After <strong>confirmation</strong>, you'll get a <strong>WhatsApp icon</strong> for your respective
-                    events on the profile page. Join those WhatsApp groups.
+                    After <strong>confirmation</strong>, you'll get a <strong>WhatsApp link</strong> for your respective
+                    events in the your college groups. Join those WhatsApp groups.
                   </li>
                 </ul>
               </div>

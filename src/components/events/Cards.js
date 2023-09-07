@@ -3,7 +3,7 @@ import "./Cards.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Cards({ isVerified, events, onRegisterClick }) {
+function Cards({ isVerified, events, onRegisterClick, teamMembers }) {
   const [expandedCardId, setExpandedCardId] = useState(null);
   const [inputId, setInputId] = useState();
   const [addedIds, setAddedIds] = useState();
@@ -18,22 +18,21 @@ function Cards({ isVerified, events, onRegisterClick }) {
   const [eventCode, setEventCode] = useState('');
   const [eventIsVerified, setEventIsVerified] = useState(false);
 
+  // console.log(teamMembers)
+  //   useEffect(() => {
 
-  
-//   useEffect(() => {
-  
-//     const localStorageData = localStorage.getItem('eventData');
+  //     const localStorageData = localStorage.getItem('eventData');
 
-//     if (localStorageData) {
-//       // Parse the JSON data into a JavaScript object
-//       const parsedData = JSON.parse(localStorageData);
-// console.log(parsedData);
-//       // Set the event data in the state
-//       setEventData(parsedData);
-//     } else {
-//       console.log('No data found in localStorage.');
-//     }
-//   }, []);
+  //     if (localStorageData) {
+  //       // Parse the JSON data into a JavaScript object
+  //       const parsedData = JSON.parse(localStorageData);
+  // console.log(parsedData);
+  //       // Set the event data in the state
+  //       setEventData(parsedData);
+  //     } else {
+  //       console.log('No data found in localStorage.');
+  //     }
+  //   }, []);
 
   function checkToken() {
     if (localStorage.getItem('token')) {
@@ -53,7 +52,7 @@ function Cards({ isVerified, events, onRegisterClick }) {
   }
   useEffect(() => {
     checkToken();
-  })
+  }, [])
 
 
 
@@ -71,13 +70,14 @@ function Cards({ isVerified, events, onRegisterClick }) {
       }
       console.log(body);
       if (!name) {
-      // console.log(name,tname);
+        // console.log(name,tname);
         await axios.post('http://127.0.0.1:8000/api/e/register/', { event_code }, { headers });
       } else {
         await axios.post('http://127.0.0.1:8000/api/e/register/', { "event_code": event_code, "team_name": name, "members": addedIds }, { headers });
       }
       // Successful login logic (e.g., save token, redirect)
       setName("");
+      setAddedIds([]);
       alert("Registered, Go to Profile page to checkOut")
 
     } catch (error) {
@@ -96,36 +96,49 @@ function Cards({ isVerified, events, onRegisterClick }) {
       setExpandedCardId(cardId);
     }
     setAddedIds([]);
+    setName("")
   };
 
 
-  const showVerificationStatus = () => {
-    alert("Verification status: " + (isVerified ? "verified" : "not-verified"));
+  function showVerificationStatus(is_verified) {
+    alert("Verification status: " + (is_verified ? "verified" : "not-verified"));
   }
+  // const parts = localStorage.getItem('participations');
+  // // const parts = response.data.user.participations;
+  const partsString = localStorage.getItem('participations');
+  const parts = JSON.parse(partsString);
+  // console.log(parts);
+  const eventCodeToIsVerifiedMap = {};
 
-
-  // const verificationStatus = (event_code) => {
-  //   const participations = JSON.parse(localStorage.getItem('participations'));
-  //   participations.map((entry) => {
-  //     if (entry.event.event_code === event_code) {
-  //       setEventIsVerified(entry.event.isVerified);
-  //     }
-  //   })
+  const verificationStatus = (event_code) => {
+    // Find the participation with the matching event_code
+    const matchingParticipation = parts.find(participation => participation.event.event_code === event_code);
+    try {
+      if (matchingParticipation) {
+        return matchingParticipation.is_verified;
+      } else {
+        return null; // Return null if no matching event_code is found
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   // }
+  //filter to check if verification status
 
 
   // Function to render the verification icon based on the verification status
-  const renderVerificationIcon = (isVerified, event_code) => {
-    
-    if (isVerified == null) {
+  const renderVerificationIcon = (is_Verified) => {
+
+    if (is_Verified == null) {
       return null; // Don't display any icon if verification status is null
-    } else if (isVerified) {
-      return <img src={require("../../images/verified.png")} alt="name" className='eventVerification' onClick={showVerificationStatus}
+    } else if (is_Verified) {
+      return <img src={require("../../images/verified.png")} alt="name" className='eventVerification' onClick={() => showVerificationStatus(is_Verified)}
       />; // Display a tick icon for true
     } else {
       return <img src={require("../../images/unverified.png")} alt="name"
-        className='eventVerification' onClick={showVerificationStatus} />; // Display a cross icon for false
+        className='eventVerification' onClick={() => showVerificationStatus(is_Verified)} />; // Display a cross icon for false
     }
   };
 
@@ -134,7 +147,7 @@ function Cards({ isVerified, events, onRegisterClick }) {
     const event_codes = (participations.map((ele) => ele.event.event_code));
     return setRegEvents(event_codes);
   }
-  useEffect(() => { unRegisterOption() }, {})
+  useEffect(() => { unRegisterOption() }, [])
 
 
 
@@ -152,7 +165,7 @@ function Cards({ isVerified, events, onRegisterClick }) {
           setPartID(ele.part_id);
         }
       });
-      console.log(addedIds);
+      // console.log(addedIds);
       if (window.confirm("do you really want to Unregister")) {
         const response = await axios.post('http://127.0.0.1:8000/api/e/unregister/', { 'part_id': partID }, { headers });
         // Successful login logic (e.g., save token, redirect)
@@ -162,7 +175,7 @@ function Cards({ isVerified, events, onRegisterClick }) {
       }
     } catch (error) {
       if (error.response.data) {
-        alert(error.response.data.details); // Show error message in alert
+        alert(error.response.data.detail || "unable to perform action, Please Try Again!"); // Show error message in alert
       } else {
         console.log(error); // Fallback error message
       }
@@ -172,7 +185,7 @@ function Cards({ isVerified, events, onRegisterClick }) {
 
   return (
     <div className="cards">
-      {events?.map((card) => (
+      {events?.map((card, index) => (
         <div
           key={card.event_code}
           className={`card ${expandedCardId === card.event_code ? "expanded" : ""
@@ -185,8 +198,10 @@ function Cards({ isVerified, events, onRegisterClick }) {
           >
             <div className="card-title">
               {card.title}
-              {/* {verificationStatus(card.event_code)} */}
-              {renderVerificationIcon(isVerified,card.event_code)}
+              {/* { verificationStatus(card.event_code) }
+             { console.log(verificationStatus(card.event_code))}
+              {console.log(card.event_code)} */}
+              {renderVerificationIcon(verificationStatus(card.event_code))}
             </div>
             <div className="card-timing">
               {`${card.start} - ${card.end}`}
@@ -204,11 +219,23 @@ function Cards({ isVerified, events, onRegisterClick }) {
             <div> Seats Booked: {card.seats} /{card.max_seats} </div>
             <div> Entry fees: Rs.{card.entry_fee}/- </div>
             <div> Prize Money: {card.prize_money} </div>
-            <div>whatsapp_link:{card.whatsapp_link}</div>
             <div> Team Size: {card.team_size} </div>
+            {teamMembers && <div className="teamMembersContainer">
+              <div className="teamMembers">Team Members </div>
+              {teamMembers.map((eve) => {
+                if (eve.event.event_code === card.event_code) {
+                  {
+                    // console.log(eve.members)
+                    return (eve.members.map((member) => (
+                      <div className="teamMember">{member}</div>
+                    )))
+                  }
+                }
+              })}
+            </div>}
             {regEvents.includes(card.event_code) ? <div className="register-div">
               <button className="register-button" onClick={() => handleUnRegisterClick(card.event_code)}>
-                unRegister
+                Unregister
               </button></div> : <>
               <div className="card-addteam">
 

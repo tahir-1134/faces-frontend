@@ -7,7 +7,9 @@ function Navbar() {
   const [mobileNav, setMobileNav] = useState(false);
   const [tokenExist, setTokenExist] = useState();
   const navigate = useNavigate();
-
+  //roll_no
+  const rollno = localStorage.getItem('roll_no');
+  const username = rollno ? rollno : "User";
   function checkToken() {
     if (localStorage.getItem('token')) {
       // Token exists, do something with it
@@ -27,7 +29,7 @@ function Navbar() {
   useEffect(() => {
     checkToken();
   })
-  
+
 
   function checkWindowSize() {
     setWindowStatus(window.innerWidth > 650 ? true : false);
@@ -40,7 +42,7 @@ function Navbar() {
     setMobileNav(!mobileNav);
   }
 
-  
+
   function handleLogOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('email');
@@ -49,13 +51,12 @@ function Navbar() {
     localStorage.removeItem('layer')
     localStorage.removeItem('userpassword')
     localStorage.removeItem('participations');
-          
+
     navigate('/');
     window.history.pushState({}, document.title, '/');
 
-}
+  }
 
-  console.log(windowStatus);
   return (
     <>
       {windowStatus ? (
@@ -104,6 +105,7 @@ function Navbar() {
             icon={faClose}
           />
           <ul type="none" className="mobileNavbarOpenLinks">
+            <li className="mobileNavbarOpenLink usernameNameDisplay">{username}</li>
             <Link to="/home">
               <li className="mobileNavbarOpenLink">Home</li>
             </Link>
@@ -113,15 +115,15 @@ function Navbar() {
             <Link to="/profile">
               <li className="mobileNavbarOpenLink">Profile</li>
             </Link>
-           
+
             {
-              checkToken ? 
-                <li className="mobileNavbarOpenLink"onClick={handleLogOut}>Logout</li>
-             :<Link to="/">
-                <li className="mobileNavbarOpenLink">Login</li>
-              </Link>
+              checkToken ?
+                <li className="mobileNavbarOpenLink" onClick={handleLogOut}>Logout</li>
+                : <Link to="/">
+                  <li className="mobileNavbarOpenLink">Login</li>
+                </Link>
             }
-         
+
           </ul>
         </div>
       )}

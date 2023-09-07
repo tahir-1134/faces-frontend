@@ -10,8 +10,21 @@ body {
 }
 
 .filters {
+  width: 95%;
   margin-bottom: 10px;
   padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+
+}
+
+.filters-options {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 /* Updated styles for the filters */
@@ -44,9 +57,10 @@ body {
   color: #002c68;
   font-weight: bold;
 }
+
 .reset-button {
   position: absolute;
-  right: 2vw;
+  right: 0;
   border-radius: 0.75rem;
   border: none;
   background: linear-gradient(180deg, #ff415e 0%, #ff8062 100%);
@@ -58,6 +72,8 @@ body {
   margin-right: 10px;
   transition: background-color 0.3s ease-out, transform 0.3s ease-out;
 }
+
 .reset-button:hover {
-  transform: scale(1.2); /* Scale the button slightly on hover */
+  transform: scale(1.2);
+  /* Scale the button slightly on hover */
 }

@@ -2,7 +2,7 @@ import React from "react";
 import "./Sponsors.css";
 
 function Sponsors() {
-  const sponsors = [1, 2, 3, 4, 5, 6];
+  const sponsors = [1];
   return (
     <div className="sponsors">
       <h3>Our Sponsors</h3>

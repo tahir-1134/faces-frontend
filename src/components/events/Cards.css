@@ -159,10 +159,18 @@
   .cards {
     flex-direction: column;
     align-items: center;
-    margin-right: 10px;
   }
   .card {
     width: 90%;
     margin: 10px 0;
   }
+}
+
+.teamMembers {
+  margin-block: 5px;
+  color: #00a538;
+}
+
+.teamMember {
+  margin-block: 5px;
 }

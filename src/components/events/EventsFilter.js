@@ -49,30 +49,32 @@ function EventCards() {
   return (
     <div className="card-division">
       <div className="filters">
-        <label>
-          <select
-            value={selectedDay}
-            onChange={handleDayChange}
-            className="custom-select"
-          >
-            <option value="All">Day</option>
-            <option value="1">Day 1</option>
-            <option value="2">Day 2</option>
-            <option value="3">Day 3</option>
-          </select>
-        </label>
-        <label>
-          <select
-            value={selectedFilter}
-            onChange={handleFilterChange}
-            className="custom-select"
-          >
-            <option value="All">Category</option>
-            <option value="C">Cultural</option>
-            <option value="S">Sports</option>
-            <option value="T">Seminar</option>
-          </select>
-        </label>
+          <div className="filters-options">
+          <label>
+            <select
+              value={selectedDay}
+              onChange={handleDayChange}
+              className="custom-select"
+            >
+              <option value="All">Day</option>
+              <option value="1">Day 1</option>
+              <option value="2">Day 2</option>
+              <option value="3">Day 3</option>
+            </select>
+          </label>
+          <label>
+            <select
+              value={selectedFilter}
+              onChange={handleFilterChange}
+              className="custom-select"
+            >
+              <option value="All">Category</option>
+              <option value="C">Cultural</option>
+              <option value="S">Sports</option>
+              <option value="T">Seminar</option>
+            </select>
+          </label>
+          </div>
         <button className="reset-button" onClick={handleReset}>
           Reset
         </button>
