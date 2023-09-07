@@ -33,8 +33,7 @@ function App() {
           {tokenExist && <>
             <Route path="/home" element={<Homepage />} />
             <Route path="/events" element={<EventsPage />} />
-            {/* <Route path="/login" element={<EventsPage />} /> */}
-            <Route path="/profile" element={<ProfilePage />} /></>}
+            <Route path="/checkout" element={<ProfilePage />} /></>}
           <Route path="/" element={<Login />} />
         </Routes>
       </div>

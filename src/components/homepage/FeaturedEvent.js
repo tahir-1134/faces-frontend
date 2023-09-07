@@ -13,9 +13,9 @@ function EventCards() {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:8000/api/e/');
+        const res = await axios.get(`${process.env.REACT_APP_URI}/api/e/`);
         SetEvents(res.data.events);
-        console.log(res.data.events);
+        // console.log(res.data.events);
       } catch (error) {
         console.log(error);
       }

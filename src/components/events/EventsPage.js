@@ -15,7 +15,7 @@ function EventsPage() {
       <Disclaimer/>
       <Sponsors />
 
-      <div class="line-1"></div>
+      <div className="line-1"></div>
 
       <EventsFilter/>
 

@@ -15,8 +15,9 @@ function Profilepage() {
   const [token, setToken] = useState();
   const [tokenExist, setTokenExist] = useState();
   const [events, SetEvents] = useState([]);
-  const [isVerified, setIsverified] = useState(false)
+  const [eventExist, setEventExist] = useState(false)
   const [teamMembers, setTeamMembers] = useState([])
+  // const [reloadCount, setReloadCount] = useState(0);
 
 
 
@@ -25,7 +26,7 @@ function Profilepage() {
     const id = localStorage.getItem('roll_no');
     const password = localStorage.getItem('userpassword');
     try {
-      const response = await axios.post('http://127.0.0.1:8000/api/u/auth/login/', { "username": id, password });
+      const response = await axios.post(`${process.env.REACT_APP_URI}/api/u/auth/login/`, { "username": id, password });
       // Successful login logic (e.g., save token, redirect)
       const token = response.data.token;
       const success = response.success;
@@ -89,8 +90,7 @@ function Profilepage() {
   }
   useEffect(() => {
     checkToken();
-
-  })
+  }, [])
 
 
   // function cardData() {
@@ -109,10 +109,11 @@ function Profilepage() {
       const part_codes = (participations.map((ele) => ele.part_id));
       setCards(part_codes);
       try {
-        const res = await axios.get('http://127.0.0.1:8000/api/e/');
+        const res = await axios.get(`${process.env.REACT_APP_URI}/api/e/`);
         SetEvents(res.data.events.filter((event) =>
           event_codes.includes(event.event_code)
         ));
+
       } catch (error) {
         console.log(error);
       }
@@ -141,16 +142,17 @@ function Profilepage() {
     );
   });
 
+
   const handleCheckOut = async () => {
     try {
-      if (window.confirm("do you want to checkout, You cannot unregister after checking out")) {
+      if (window.confirm("Do you want to checkout, You cannot Unregister after checking out!")) {
 
         const headers = {
           Authorization: `token ${token}`,
           'Content-Type': 'application/json',
         }
-        console.log(cards)
-        const response = await axios.post('http://127.0.0.1:8000/api/u/checkout/', { "participations": cards, "upi_transaction_id": "VADE0CB248932" }, {
+        // console.log(cards)
+        const response = await axios.post(`${process.env.REACT_APP_URI}/api/u/checkout/`, { "participations": cards, "upi_transaction_id": "VADE0CB248932" }, {
           headers
         });
         alert("Checked Out successfully");
@@ -178,7 +180,8 @@ function Profilepage() {
           <h1>Your Registrations</h1>
           <div className="registeredEvents">
             <div className="pp">
-              <Cards events={filteredCards} isVerified={false} teamMembers={teamMembers} /></div>
+              <Cards events={filteredCards} isVerified={false} teamMembers={teamMembers} />
+            </div>
           </div>
           <button className="ProfileSubmit" type='submit' onClick={handleCheckOut}>SUBMIT</button>
         </div>

@@ -30,7 +30,11 @@ function Navbar() {
     checkToken();
   })
 
-
+  const handleCheckoutClick = () => {
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 100); 
+  };
   function checkWindowSize() {
     setWindowStatus(window.innerWidth > 650 ? true : false);
   }
@@ -69,8 +73,8 @@ function Navbar() {
             <Link to="/events">
               <p className="navbarLinks_link">Events</p>
             </Link>
-            <Link to="/profile">
-              <p className="navbarLinks_link">Profile</p>
+            <Link to="/checkout" onClick={handleCheckoutClick}>
+              <p className="navbarLinks_link">Checkout</p>
             </Link>
 
             {
@@ -112,8 +116,8 @@ function Navbar() {
             <Link to="/events">
               <li className="mobileNavbarOpenLink">Events</li>
             </Link>
-            <Link to="/profile">
-              <li className="mobileNavbarOpenLink">Profile</li>
+            <Link to="/checkout" onClick={handleCheckoutClick}>
+              <li className="mobileNavbarOpenLink">Checkout</li>
             </Link>
 
             {

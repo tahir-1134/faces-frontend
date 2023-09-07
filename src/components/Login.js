@@ -29,7 +29,7 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/u/auth/login/', { "username": id, password });
+            const response = await axios.post(`${process.env.REACT_APP_URI}/api/u/auth/login/`, { "username": id, password });
             // Successful login logic (e.g., save token, redirect)
             const token = response.data.token;
             const success = response.success;
@@ -54,7 +54,7 @@ function Login() {
 
         } catch (error) {
             if (error.response) {
-                console.log(error.response); // Show error message in alert
+                alert(error.response.data.errors.non_field_errors); // Show error message in alert
             } else {
                 alert('An error occurred'); // Fallback error message
             }

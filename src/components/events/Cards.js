@@ -71,9 +71,9 @@ function Cards({ isVerified, events, onRegisterClick, teamMembers }) {
       console.log(body);
       if (!name) {
         // console.log(name,tname);
-        await axios.post('http://127.0.0.1:8000/api/e/register/', { event_code }, { headers });
+        await axios.post(`${process.env.REACT_APP_URI}/api/e/register/`, { event_code }, { headers });
       } else {
-        await axios.post('http://127.0.0.1:8000/api/e/register/', { "event_code": event_code, "team_name": name, "members": addedIds }, { headers });
+        await axios.post(`${process.env.REACT_APP_URI}/api/e/register/`, { "event_code": event_code, "team_name": name, "members": addedIds }, { headers });
       }
       // Successful login logic (e.g., save token, redirect)
       setName("");
@@ -167,7 +167,7 @@ function Cards({ isVerified, events, onRegisterClick, teamMembers }) {
       });
       // console.log(addedIds);
       if (window.confirm("do you really want to Unregister")) {
-        const response = await axios.post('http://127.0.0.1:8000/api/e/unregister/', { 'part_id': partID }, { headers });
+        const response = await axios.post(`${process.env.REACT_APP_URI}/api/e/unregister/`, { 'part_id': partID }, { headers });
         // Successful login logic (e.g., save token, redirect)
         setName("");
         setAddedIds("");
@@ -185,7 +185,7 @@ function Cards({ isVerified, events, onRegisterClick, teamMembers }) {
 
   return (
     <div className="cards">
-      {events?.map((card, index) => (
+      {events?.map((card) => (
         <div
           key={card.event_code}
           className={`card ${expandedCardId === card.event_code ? "expanded" : ""
@@ -227,7 +227,7 @@ function Cards({ isVerified, events, onRegisterClick, teamMembers }) {
                   {
                     // console.log(eve.members)
                     return (eve.members.map((member) => (
-                      <div className="teamMember">{member}</div>
+                      <div className="teamMember" key={card.event_code}>{member}</div>
                     )))
                   }
                 }

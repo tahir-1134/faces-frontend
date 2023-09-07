@@ -6,8 +6,8 @@ function Disclaimer() {
     <div className="herosection">
       <div className="herosection-container">
         <div className="image-div">
-          <div class="square-wrapper">
-            <div class="square">
+          <div className="square-wrapper">
+            <div className="square">
               {/* <div className="square1"></div>
               <div className="square"> */}
               <div className="disclaimer-text">

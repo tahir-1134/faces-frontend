@@ -8,10 +8,10 @@ function Sponsors() {
       <h3>Our Sponsors</h3>
       <div className="sponsorsCards">
         {sponsors.map((sponsors, index) => (
-          <div className="sponsorsCardContainer">
+          <div key={index} className="sponsorsCardContainer">
             <img
               className="sponsorsCard"
-              key={index}
+              
               src={require(`../images/sponsor${index + 1}.png`)}
               alt="sponsor logo"
             />
