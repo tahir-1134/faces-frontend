@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Navbar from "../Navbar.js";
 import HeroSection from "./HeroSection";
 import "./Homepage.css";
@@ -7,6 +7,9 @@ import Sponsors from "../Sponsors.js";
 import Footer from "../Footer.js";
 
 function Homepage() {
+  
+
+  
   return (
     <main className="homepage">
       <Navbar />

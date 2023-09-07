@@ -17,7 +17,7 @@
   overflow: hidden;
   margin: 10px;
   transition: all 0.3s ease-in-out;
-  background-color: #fff;
+  background-color: #000 50%;
 }
 @media (max-width: 1000px) {
   .card {
@@ -94,17 +94,18 @@
 .card.expanded .card-description {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
+  font-size:16px;
+  background:#FEFEF7;
 }
 
 .card-addteam {
   display: flex;
   flex-direction: column;
-  gap: 5px;
 }
 
 .card-addteam > p {
-  font-size: 1.25rem;
+  font-size: large;
 }
 
 .card-addteam-add {
@@ -138,29 +139,38 @@
 }
 .register-button {
   background-color: #00a538;
-  color: #fff;
-  width: 20%;
-  height: 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 14px;
-  position: absolute;
-  right: 0;
-  padding: 2px;
-  margin-right: 5px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    position: absolute;
+    padding: 10px 20px;
+    font-size: large;
+    box-sizing: border-box;
+    margin-right: 5px;
 }
 .register-div {
-  margin: 7px;
+  margin: 30px auto 10px;    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 /* Media query for mobile devices */
 @media screen and (max-width: 768px) {
   .cards {
     flex-direction: column;
     align-items: center;
-    margin-right: 10px;
   }
   .card {
     width: 90%;
     margin: 10px 0;
   }
+}
+
+.teamMembers {
+  margin-block: 5px;
+  color: #00a538;
+}
+
+.teamMember {
+  margin-block: 5px;
 }

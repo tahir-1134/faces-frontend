@@ -1,11 +1,40 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, history } from "react-router-dom";
 function Navbar() {
   const [mobileNav, setMobileNav] = useState(false);
+  const [tokenExist, setTokenExist] = useState();
+  const navigate = useNavigate();
+  //roll_no
+  const rollno = localStorage.getItem('roll_no');
+  const username = rollno ? rollno : "User";
+  function checkToken() {
+    if (localStorage.getItem('token')) {
+      // Token exists, do something with it
+      setTokenExist(true);
+      const token = localStorage.getItem('token');
+      // console.log('Token exists:', token);
 
+      // You can use the token for authentication or perform other actions here
+    } else {
+      // Token does not exist in localStorage
+      setTokenExist(false);
+      console.log('You need to Login first');
+      navigate('/Home');
+    }
+
+  }
+  useEffect(() => {
+    checkToken();
+  })
+
+  const handleCheckoutClick = () => {
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 100); 
+  };
   function checkWindowSize() {
     setWindowStatus(window.innerWidth > 650 ? true : false);
   }
@@ -16,25 +45,45 @@ function Navbar() {
   function handleClick() {
     setMobileNav(!mobileNav);
   }
-  // console.log(windowStatus);
+
+
+  function handleLogOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    localStorage.removeItem('name')
+    localStorage.removeItem('roll_no')
+    localStorage.removeItem('layer')
+    localStorage.removeItem('userpassword')
+    localStorage.removeItem('participations');
+
+    navigate('/');
+    window.history.pushState({}, document.title, '/');
+
+  }
+
   return (
     <>
       {windowStatus ? (
         <div className="navbar">
           <div className="navbarLogo">Faces 2023</div>
           <div className="navbarLinks">
-            <Link to="/">
+            <Link to="/home">
               <p className="navbarLinks_link">Home</p>
             </Link>
             <Link to="/events">
               <p className="navbarLinks_link">Events</p>
             </Link>
-            <Link to="/profile">
-              <p className="navbarLinks_link">Profile</p>
+            <Link to="/checkout" onClick={handleCheckoutClick}>
+              <p className="navbarLinks_link">Checkout</p>
             </Link>
-            <Link to="/login">
-              <p className="navbarLinks_link">Login</p>
-            </Link>
+
+            {
+              tokenExist ?
+                <p className="navbarLinks_link" onClick={handleLogOut}>Logout</p>
+                : <Link to="/">
+                  <p className="navbarLinks_link">Login</p>
+                </Link>
+            }
           </div>
         </div>
       ) : (
@@ -60,18 +109,25 @@ function Navbar() {
             icon={faClose}
           />
           <ul type="none" className="mobileNavbarOpenLinks">
-            <Link to="/">
+            <li className="mobileNavbarOpenLink usernameNameDisplay">{username}</li>
+            <Link to="/home">
               <li className="mobileNavbarOpenLink">Home</li>
             </Link>
             <Link to="/events">
               <li className="mobileNavbarOpenLink">Events</li>
             </Link>
-            <Link to="/profile">
-              <li className="mobileNavbarOpenLink">Profile</li>
+            <Link to="/checkout" onClick={handleCheckoutClick}>
+              <li className="mobileNavbarOpenLink">Checkout</li>
             </Link>
-            <Link to="/login">
-              <li className="mobileNavbarOpenLink">Login</li>
-            </Link>
+
+            {
+              checkToken ?
+                <li className="mobileNavbarOpenLink" onClick={handleLogOut}>Logout</li>
+                : <Link to="/">
+                  <li className="mobileNavbarOpenLink">Login</li>
+                </Link>
+            }
+
           </ul>
         </div>
       )}

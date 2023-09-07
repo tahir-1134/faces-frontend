@@ -56,6 +56,7 @@
   background-color: white;
   border-radius: 15px 5px 5px 15px;
 }
+
 .profileEmail {
   height: 40px;
   width: 100%;
@@ -120,8 +121,8 @@
 
 .myRegisteredEvents {
   width: 500px;
-  height: 44vw;
-  overflow-x: scroll;
+  height: fit-content;
+  min-height: 20vw;
   position: relative;
   top: 290px;
   border-radius: 10px;
@@ -133,17 +134,8 @@
   justify-content: center;
   font-family: "Kumbh Sans", "sans-serif";
   flex-direction: column;
-}
-
-/* For Chrome, Safari and Opera */
-.myRegisteredEvents::-webkit-scrollbar {
-  display: none;
-}
-
-/* For IE, Edge and Firefox */
-.myRegisteredEvents {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  padding: 10px 0px;
+  margin-bottom: 10vw;
 }
 
 .registeredEvents {
@@ -252,9 +244,8 @@
   }
 
   .myRegisteredEvents {
-    width: 335px;
     top: 275px;
-    height: 100vw;
+    margin: 0px 10px;
   }
 
   .myRegisteredEvents h1 {
@@ -263,7 +254,7 @@
 
   .registeredEvents {
     height: 90%;
-    padding: 10px;
+    padding: 0px;
   }
 
   .profileEvent {
@@ -303,9 +294,11 @@
   width: calc(100% - 20px);
   /* height:150px; */
 }
+
 .pp .card-title {
   bottom: unset;
 }
+
 /* .pp .card-title .verification-icon{
     position:absolute;
  bottom:0;

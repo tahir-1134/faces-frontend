@@ -1,12 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "../events/EventsFilter.css";
 import cardData from "../events/cardsData.json";
 import Cards from "../events/Cards"; 
+import axios from "axios";
 
 function EventCards() {
   const [selectedFilter, setSelectedFilter] = useState("All");
   const [selectedDay, setSelectedDay] = useState("All");
   const [cards, setCards] = useState(cardData);
+  const [events, SetEvents] = useState();
+
+  useEffect(() => {
+    const getEvents = async () => {
+      try {
+        const res = await axios.get(`${process.env.REACT_APP_URI}/api/e/`);
+        SetEvents(res.data.events);
+        // console.log(res.data.events);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getEvents();
+  }, []);
+
 
   const handleFilterChange = (event) => {
     setSelectedFilter(event.target.value);
@@ -21,10 +38,10 @@ function EventCards() {
     setSelectedDay("All");
   };
 
-  const filteredCards = cards.filter((card) => {
+  const filteredEvents = events?.filter((card) => {
     return (
         card.is_featured &&
-        (selectedFilter === "All" || card.category === selectedFilter) &&
+        (selectedFilter === "All" || card.category == selectedFilter) &&
         (selectedDay === "All" || card.day == selectedDay)
     );
   });
@@ -53,7 +70,7 @@ function EventCards() {
             <option value="All">Category</option>
             <option value="C">Cultural</option>
             <option value="S">Sports</option>
-            <option value="Seminar">Seminar</option>
+            <option value="T">Seminar</option>
           </select>
         </label>
         <button className="reset-button" onClick={handleReset}>
@@ -62,7 +79,7 @@ function EventCards() {
       </div>
 
     
-      <Cards filteredCards={filteredCards} isVerified={null}/>
+      <Cards events={filteredEvents} isVerified={null}/>
     </div>
   );
 }

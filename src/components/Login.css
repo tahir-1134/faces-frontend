@@ -1,14 +1,17 @@
-*{
+* {
     transition: all 0.1s ease-in-out;
 }
 
-.LoginPage{
+.LoginPage {
     width: 100vw;
     height: 100vh;
     display: flex;
+    background-image: url(../images/LoginBackground1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.LoginprofileIcon{
+.LoginprofileIcon {
     padding: 2px;
     box-sizing: border-box;
     border-radius: 50%;
@@ -22,7 +25,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.LoginForm{
+.LoginForm {
     background: url(../images/myProfileBackground.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -37,7 +40,7 @@
     margin: auto;
 }
 
-.profileName{
+.profileName {
     height: 40px;
     width: 44%;
     display: flex;
@@ -45,7 +48,7 @@
     border-radius: 15px 5px 5px 15px;
 }
 
-.profileInfo{
+.profileInfo {
     display: flex;
     gap: 30px 60px;
     flex-wrap: wrap;
@@ -54,26 +57,26 @@
     bottom: 35px;
 }
 
-.profileLogos{
+.profileLogos {
     height: 100%;
 }
 
-.myProfileLogo{
+.myProfileLogo {
     height: 124px;
     margin: auto;
     transition: all 0.3s ease-in-out;
 }
 
-.profileName input{
-border-radius: 0px 5px 5px 0px;
-border: none;
-font-size: medium;
-outline: none;
-background: transparent;
-width: 80%;
+.profileName input {
+    border-radius: 0px 5px 5px 0px;
+    border: none;
+    font-size: medium;
+    outline: none;
+    background: transparent;
+    width: 80%;
 }
 
-.ProfileSubmit{
+.ProfileSubmit {
     font-size: larger;
     border-radius: 5px;
     border: none;
@@ -83,50 +86,50 @@ width: 80%;
     margin: auto;
 }
 
-.ProfileSubmit:hover{
+.ProfileSubmit:hover {
     transform: scale(1.05);
-    box-shadow:  4px 4px 4px 0 rgba(0, 0, 0, 0.2), 6px 6px 10px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.2), 6px 6px 10px 0 rgba(0, 0, 0, 0.19);
     transition: all 0.1s ease;
 }
 
-.LoginprofileIcon:hover{
+.LoginprofileIcon:hover {
     transition: all 0.3s ease-in-out;
     transform: scale(1.1);
 }
 
-.myProfileLogo:hover{
+.myProfileLogo:hover {
     transform: scale(0.8);
     transition: all 0.3s ease-in-out;
 }
 
 @media only screen and (max-width: 750px) {
-    .LoginForm{
-    padding: 0px;
-    width: 337px;
-    margin: auto;
+    .LoginForm {
+        padding: 0px;
+        width: 337px;
+        margin: auto;
     }
 
-    .profileInfo{
-    gap: 16px 90px;
-    padding: 0px 11px;
+    .profileInfo {
+        gap: 16px 90px;
+        padding: 0px 11px;
     }
 
-    .profileName{
-    width: 100%;
+    .profileName {
+        width: 100%;
     }
 
-    .ProfileSubmit{
+    .ProfileSubmit {
         font-size: medium;
     }
 
-    .LoginprofileIcon{
+    .LoginprofileIcon {
         display: flex;
         width: 115px;
         height: 115px;
         bottom: 60px;
     }
 
-    .myProfileLogo{
+    .myProfileLogo {
         height: 80px;
         margin: auto;
     }
