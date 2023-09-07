@@ -31,9 +31,9 @@ function Navbar() {
   })
 
   const handleCheckoutClick = () => {
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 100); 
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   };
   function checkWindowSize() {
     setWindowStatus(window.innerWidth > 650 ? true : false);
