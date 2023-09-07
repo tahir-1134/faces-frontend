@@ -36,6 +36,16 @@ const [tokenExist, setTokenExist] = useState();
       // console.log(parts);
       const participations = JSON.stringify(parts)
       console.log(participations);
+//       const eventCodeToIsVerifiedMap = {};
+
+// participations.forEach(participation => {
+//   const eventCode = participation.event.event_code;
+//   const is_Verified = participation.is_verified;
+//   console.log(eventCode);
+//   console.log(is_Verified);
+//   eventCodeToIsVerifiedMap[eventCode] = is_Verified;
+// });
+// console.log(eventCodeToIsVerifiedMap);
       localStorage.setItem('token', token);
       localStorage.setItem('roll_no', roll_no);
       localStorage.setItem('name', name);
@@ -166,7 +176,7 @@ const filteredCards = events?.filter((card) => {
                     <h1>Your Registrations</h1>
                     <div className="registeredEvents">
                          <div className="pp"> 
-                    <Cards events={filteredCards} /></div>
+                    <Cards events={filteredCards} isVerified={false} /></div>
                     </div>
                     <button className="ProfileSubmit" type='submit' onClick={handleCheckOut}>SUBMIT</button>
                 </div>

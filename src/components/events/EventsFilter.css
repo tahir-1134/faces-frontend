@@ -46,7 +46,7 @@ body {
 }
 .reset-button {
   position: absolute;
-  right: 0;
+  right: 2vw;
   border-radius: 0.75rem;
   border: none;
   background: linear-gradient(180deg, #ff415e 0%, #ff8062 100%);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAsyncError, useNavigate } from 'react-router-dom';
 import "./Login.css";
+// import Ehsaas from './homepage/Ehsaas.js'
 import axios from 'axios';
 
 function Login() {
@@ -15,11 +16,11 @@ function Login() {
     const [tokenExist, setTokenExist] = useState();
 
 
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(id,password)
+        console.log(id, password)
         handleLogin();
         setId("");
         setPassword("");
@@ -28,7 +29,7 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/u/auth/login/', {"username":id,password });
+            const response = await axios.post('http://127.0.0.1:8000/api/u/auth/login/', { "username": id, password });
             // Successful login logic (e.g., save token, redirect)
             const token = response.data.token;
             const success = response.success;
@@ -36,9 +37,9 @@ function Login() {
             const name = response.data.user.name;
             const parts = response.data.user.participations;
             const email = response.data.user.email;
-            const userpassword=response.data.user.userpassword
+            const userpassword = response.data.user.userpassword
             // console.log(parts);
-            const participations=JSON.stringify(parts)
+            const participations = JSON.stringify(parts)
             console.log(participations);
             localStorage.setItem('token', token);
             localStorage.setItem('roll_no', roll_no);
@@ -49,7 +50,7 @@ function Login() {
 
             console.log(success);
             navigate('/home');
-            window.location.reload();            
+            window.location.reload();
 
         } catch (error) {
             if (error.response) {
@@ -82,6 +83,7 @@ function Login() {
 
     return (
         <div className='LoginPage'>
+            {/* <Ehsaas /> */}
             <form className='LoginForm' onSubmit={handleSubmit}>
                 <div className="LoginprofileIcon">
                     <img src={require("../images/myLogo.png")} alt="name"
@@ -93,7 +95,7 @@ function Login() {
                         <img src={require("../images/profileName.png")} alt="name"
                             className='profileLogos'
                         />
-                        <input type="text" placeholder='Enter ID' className='profileEnterName'  onChange={(e) => setId(e.target.value)} value={id} name='id' />
+                        <input type="text" placeholder='Enter ID' className='profileEnterName' onChange={(e) => setId(e.target.value)} value={id} name='id' />
                     </div>
                     <div className="profileName">
                         <img src={require("../images/profilePass.png")} alt="name"
