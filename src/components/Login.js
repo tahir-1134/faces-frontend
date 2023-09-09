@@ -29,7 +29,7 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post(`${process.env.REACT_APP_URI}/api/u/auth/login/`, { "username": id, password });
+            const response = await axios.post(`http://35.207.211.236/api/u/auth/login/`, { "username": id, password });
             // Successful login logic (e.g., save token, redirect)
             const token = response.data.token;
             const success = response.success;
@@ -54,7 +54,7 @@ function Login() {
 
         } catch (error) {
             if (error.response) {
-                alert(error.response.data.errors.non_field_errors); // Show error message in alert
+                alert("Check your Login Credentials and try again"); // Show error message in alert
             } else {
                 alert('An error occurred'); // Fallback error message
             }

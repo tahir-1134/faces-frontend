@@ -13,9 +13,9 @@ function EventCards() {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_URI}/api/e/`);
+        const res = await axios.get(`http://35.207.211.236/api/e/`);
         SetEvents(res.data.events);
-        console.log(res.data.events);
+        // console.log(res.data.events);
       } catch (error) {
         console.log(error);
       }
@@ -40,7 +40,7 @@ function EventCards() {
 
   const filterEvents = events?.filter((card) => {
     return (
-      
+
       (selectedFilter === "All" || card.category == selectedFilter) &&
       (selectedDay === "All" || card.day == selectedDay)
     );
@@ -49,7 +49,7 @@ function EventCards() {
   return (
     <div className="card-division">
       <div className="filters">
-          <div className="filters-options">
+        <div className="filters-options">
           <label>
             <select
               value={selectedDay}
@@ -74,14 +74,14 @@ function EventCards() {
               <option value="T">Seminar</option>
             </select>
           </label>
-          </div>
+        </div>
         <button className="reset-button" onClick={handleReset}>
           Reset
         </button>
       </div>
 
-   <Cards events={filterEvents} isVerified={null} />
-     
+      <Cards events={filterEvents} isVerified={null} />
+
     </div>
   );
 }

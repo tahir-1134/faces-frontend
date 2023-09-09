@@ -48,18 +48,22 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  /* background-color: #002C68; */
+  background-color: #002C68;
+  opacity: 0.8;
   color: white;
   padding: 5px 10px;
-  border-radius: 0 0 0.35rem 0.35rem;
+  border-radius: 0 0.35rem 0 0;
 }
 
 .card-timing {
   position: absolute;
   bottom: 0;
   right: 0;
-  color: white;
+  background-color: white;
+  opacity: 0.8;
+  color: black;
   padding: 5px 10px;
+  border-radius: 0.35rem 0 0 0;
 }
 
 .card-category {

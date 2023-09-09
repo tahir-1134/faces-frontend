@@ -26,7 +26,7 @@ function Profilepage() {
     const id = localStorage.getItem('roll_no');
     const password = localStorage.getItem('userpassword');
     try {
-      const response = await axios.post(`${process.env.REACT_APP_URI}/api/u/auth/login/`, { "username": id, password });
+      const response = await axios.post(`http://35.207.211.236/api/u/auth/login/`, { "username": id, password });
       // Successful login logic (e.g., save token, redirect)
       const token = response.data.token;
       const success = response.success;
@@ -109,7 +109,7 @@ function Profilepage() {
       const part_codes = (participations.map((ele) => ele.part_id));
       setCards(part_codes);
       try {
-        const res = await axios.get(`${process.env.REACT_APP_URI}/api/e/`);
+        const res = await axios.get(`http://35.207.211.236/api/e/`);
         SetEvents(res.data.events.filter((event) =>
           event_codes.includes(event.event_code)
         ));
@@ -152,7 +152,7 @@ function Profilepage() {
           'Content-Type': 'application/json',
         }
         // console.log(cards)
-        const response = await axios.post(`${process.env.REACT_APP_URI}/api/u/checkout/`, { "participations": cards, "upi_transaction_id": "VADE0CB248932" }, {
+        const response = await axios.post(`http://35.207.211.236/api/u/checkout/`, { "participations": cards, "upi_transaction_id": "VADE0CB248932" }, {
           headers
         });
         alert("Checked Out successfully");

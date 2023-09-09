@@ -71,9 +71,9 @@ function Cards({ isVerified, events, onRegisterClick, teamMembers }) {
       console.log(body);
       if (!name) {
         // console.log(name,tname);
-        await axios.post(`${process.env.REACT_APP_URI}/api/e/register/`, { event_code }, { headers });
+        await axios.post(`http://35.207.211.236/api/e/register/`, { event_code }, { headers });
       } else {
-        await axios.post(`${process.env.REACT_APP_URI}/api/e/register/`, { "event_code": event_code, "team_name": name, "members": addedIds }, { headers });
+        await axios.post(`http://35.207.211.236/api/e/register/`, { "event_code": event_code, "team_name": name, "members": addedIds }, { headers });
       }
       // Successful login logic (e.g., save token, redirect)
       setName("");
@@ -167,7 +167,7 @@ function Cards({ isVerified, events, onRegisterClick, teamMembers }) {
       });
       // console.log(addedIds);
       if (window.confirm("do you really want to Unregister")) {
-        const response = await axios.post(`${process.env.REACT_APP_URI}/api/e/unregister/`, { 'part_id': partID }, { headers });
+        const response = await axios.post(`http://35.207.211.236/api/e/unregister/`, { 'part_id': partID }, { headers });
         // Successful login logic (e.g., save token, redirect)
         setName("");
         setAddedIds("");

@@ -1,7 +1,7 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../events/EventsFilter.css";
 import cardData from "../events/cardsData.json";
-import Cards from "../events/Cards"; 
+import Cards from "../events/Cards";
 import axios from "axios";
 
 function EventCards() {
@@ -13,7 +13,7 @@ function EventCards() {
   useEffect(() => {
     const getEvents = async () => {
       try {
-        const res = await axios.get(`${process.env.REACT_APP_URI}/api/e/`);
+        const res = await axios.get(`http://35.207.211.236/api/e/`);
         SetEvents(res.data.events);
         // console.log(res.data.events);
       } catch (error) {
@@ -40,14 +40,14 @@ function EventCards() {
 
   const filteredEvents = events?.filter((card) => {
     return (
-        card.is_featured &&
-        (selectedFilter === "All" || card.category == selectedFilter) &&
-        (selectedDay === "All" || card.day == selectedDay)
+      card.is_featured &&
+      (selectedFilter === "All" || card.category == selectedFilter) &&
+      (selectedDay === "All" || card.day == selectedDay)
     );
   });
 
   return (
-    <div className="card-division" style={{marginBottom:'4vw'}}>
+    <div className="card-division" style={{ marginBottom: '4vw' }}>
       <div className="filters">
         <label>
           <select
@@ -78,8 +78,8 @@ function EventCards() {
         </button>
       </div>
 
-    
-      <Cards events={filteredEvents} isVerified={null}/>
+
+      <Cards events={filteredEvents} isVerified={null} />
     </div>
   );
 }
