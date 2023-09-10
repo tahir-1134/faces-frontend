@@ -73,11 +73,11 @@ h1 {
 
 .image-div img {
   width: clamp(380px, 45vw, 700px);
-  height: fit-content;
+  height: clamp(520px, 55vw, 850px);
   margin: 13.7vw auto;
   @media (max-width: 750px) {
     height: 126vw;
-    width: fit-content;
+    width: 105vw;
     margin: 0;
   }
 }

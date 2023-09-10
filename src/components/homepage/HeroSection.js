@@ -9,7 +9,11 @@ function HeroSection() {
       <div className="herosection-container">
         <div className="ehsaas-block">
           {Letters.map((letter, index) => (
-            <span key={index} id={letter} className="ehsaas-char bounce-3">
+            <span
+              key={index}
+              id={`${letter}${index}`}
+              className="ehsaas-char bounce-3"
+            >
               {letter}
             </span>
           ))}

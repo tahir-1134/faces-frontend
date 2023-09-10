@@ -6,7 +6,6 @@
 }
 
 .herosection-background {
-  width: 100%;
   position: relative;
   top: 0;
   left: 0;
@@ -16,7 +15,7 @@
 .herosection-football {
   position: absolute;
   width: 7.2vw;
-  height: fit-content;
+  height: 7.2vw;
   top: 38vw;
   left: 32vw;
   animation: spin 2s linear infinite;
@@ -25,7 +24,7 @@
 .herosection-basketball {
   position: absolute;
   width: 5.2vw;
-  height: fit-content;
+  height: 5.2vw;
   top: 24.5vw;
   left: 7.5vw;
   animation: spin 2s linear infinite;
@@ -34,7 +33,7 @@
 .herosection-basketballguy {
   position: absolute;
   width: 30.5vw;
-  height: fit-content;
+  height: 30.5vw;
   top: 25vw;
   left: 7.2vw;
 }
@@ -42,15 +41,15 @@
 .herosection-footballguy {
   position: absolute;
   width: 40vw;
-  height: fit-content;
-  top: 28.9vw;
+  height: 32vw;
+  top: 29.2vw;
   left: -6vw;
 }
 
 .herosection-badmintonguy {
   position: absolute;
   width: 22.3vw;
-  height: fit-content;
+  height: 35vw;
   top: 9vw;
   left: -3.5vw;
 }
@@ -79,7 +78,7 @@
 .herosection-beam1 {
   position: absolute;
   width: 1.7vw;
-  height: fit-content;
+  height: 1.7vw;
   top: 42vw;
   left: 72vw;
   animation: fade 3s ease-in 1s infinite;
@@ -88,7 +87,7 @@
 .herosection-beam2 {
   position: absolute;
   width: 1.4vw;
-  height: fit-content;
+  height: 1.4vw;
   top: 43vw;
   left: 76vw;
   animation: fade 3s ease-in infinite;
@@ -97,7 +96,7 @@
 .herosection-beam3 {
   position: absolute;
   width: 2.5vw;
-  height: fit-content;
+  height: 2.5vw;
   top: 21vw;
   left: 85vw;
   animation: fade 3s ease-in 500ms infinite;
@@ -106,7 +105,7 @@
 .herosection-beam4 {
   position: absolute;
   width: 2.5vw;
-  height: fit-content;
+  height: 2.5vw;
   top: 17.3vw;
   left: 88vw;
   animation: fade 3s ease-in 1s infinite;
@@ -115,7 +114,7 @@
 .herosection-beam5 {
   position: absolute;
   width: 1.7vw;
-  height: fit-content;
+  height: 1.7vw;
   top: 32vw;
   left: 69vw;
   animation: fade 3s ease-in 1s infinite;
@@ -124,7 +123,7 @@
 .herosection-clef {
   position: absolute;
   width: 4vw;
-  height: fit-content;
+  height: 5.5vw;
   top: 33vw;
   left: 92vw;
   animation: fade 3s ease-in 2s infinite;
@@ -143,7 +142,7 @@
 .herosection-hoop1 {
   position: absolute;
   width: 17.5vw;
-  height: auto;
+  height: 17.5vw;
   top: 22vw;
   left: 72vw;
   animation: spin 2s linear infinite;
@@ -152,7 +151,7 @@
 .herosection-hoop2 {
   position: absolute;
   width: 2.75vw;
-  height: auto;
+  height: 2.75vw;
   top: 35vw;
   left: 90vw;
   animation: spin 2s linear infinite;
@@ -161,7 +160,7 @@
 .herosection-hoop3 {
   position: absolute;
   width: 2vw;
-  height: auto;
+  height: 2vw;
   top: 15vw;
   left: 92vw;
   animation: spin 2s linear infinite;
@@ -170,7 +169,7 @@
 .herosection-guitar {
   position: absolute;
   width: 11vw;
-  height: fit-content;
+  height: 8vw;
   top: 41.5vw;
   left: 69.5vw;
   animation: shiver 1s linear infinite;
@@ -179,7 +178,7 @@
 .herosection-keyboard {
   position: absolute;
   width: 6vw;
-  height: fit-content;
+  height: 6.7vw;
   top: 31.25vw;
   left: 69.5vw;
   animation: shiver 1s linear infinite;
@@ -188,7 +187,7 @@
 .herosection-tape {
   position: absolute;
   width: 6vw;
-  height: fit-content;
+  height: 5vw;
   top: 21vw;
   left: 86vw;
   animation: shiver 1s linear infinite;
@@ -209,7 +208,7 @@
 .herosection-boy {
   position: absolute;
   width: 17vw;
-  height: fit-content;
+  height: 16.5vw;
   top: 12.5vw;
   left: 70vw;
   animation: boy 3s linear infinite;
@@ -232,8 +231,8 @@
 
 .herosection-girl1 {
   position: absolute;
-  width: 10.3vw;
-  height: fit-content;
+  width: 9.3vw;
+  height: 21.5vw;
   top: 27.5vw;
   left: 80vw;
   animation: girl1 3s linear infinite;
@@ -299,21 +298,21 @@
     transform: translateY(0);
   }
 }
-#E {
+#E0 {
   animation-delay: 0;
 }
-#h {
-  animation-delay: 200ms;
-}
-#s {
+#h1 {
   animation-delay: 100ms;
 }
-#a {
+#s2 {
+  animation-delay: 200ms;
+}
+#a3 {
   animation-delay: 300ms;
 }
-#a {
+#a4 {
   animation-delay: 500ms;
 }
-#s {
-  animation-delay: 400ms;
+#s5 {
+  animation-delay: 600ms;
 }
