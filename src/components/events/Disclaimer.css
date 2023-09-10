@@ -9,9 +9,13 @@
 }
 
 .square {
+  position: relative;
+  z-index: 1;
+
   border: 2px solid black;
   border-radius: 3.6vw;
   width: 45vw;
+  height: fit-content;
 
   @media (max-width: 750px) {
     border-radius: 30px;
@@ -23,6 +27,7 @@
   background-color: #fefef7;
   font-size: xx-large;
   width: 46vw;
+  height: fit-content;
   border-radius: 3.6vw;
   position: relative;
   left: 1.7vw;
@@ -41,21 +46,22 @@
 
 .square-wrapper {
   position: relative;
+  z-index: 1;
   flex: 0.44;
   top: 10.3vw;
   left: 5vw;
   width: 44.2vw;
-  height: 35.8vw;
+  height: fit-content;
 
   @media (max-width: 750px) {
     top: 20vw;
     left: 5vw;
-    height: 110vw;
+    height: 120vw;
   }
 }
 
 li {
-  font-size: 1.5vw;
+  font-size: large;
 
   @media (max-width: 750px) {
     font-size: 3vw;
@@ -64,7 +70,7 @@ li {
 
 p,
 h1 {
-  font-size: 2vw;
+  font-size: large;
 
   @media (max-width: 750px) {
     font-size: 4vw;
@@ -72,9 +78,13 @@ h1 {
 }
 
 .image-div img {
-  width: clamp(380px, 45vw, 700px);
+  width: clamp(380px, 40vw, 800px);
   height: clamp(520px, 55vw, 850px);
-  margin: 13.7vw auto;
+  margin: 13.7vw 0 0;
+  position: relative;
+  z-index: 0;
+  top: -10vw;
+
   @media (max-width: 750px) {
     height: 126vw;
     width: 105vw;

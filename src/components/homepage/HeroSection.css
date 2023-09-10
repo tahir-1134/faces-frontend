@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bigshot+One&display=swap');
 .herosection-container,
 .herosection-container,
 .herosection-background {
@@ -254,7 +255,7 @@
 .ehsaas-block {
   margin: auto;
   max-width: fit-content;
-  font-family: "Bigshot One", cursive;
+  font-family: 'Bigshot One', cursive;
   font-size: 14.47vw;
   color: #e5fcff;
   height: 6vw;

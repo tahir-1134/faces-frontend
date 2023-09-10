@@ -6,7 +6,6 @@
   flex-direction: column;
   position: relative;
   overflow-x: hidden;
-  padding: 2vw;
 }
 
 .footer-background {
@@ -18,7 +17,7 @@
   z-index: -1;
 }
 .line-1 {
-  margin: 20px;
+  margin: 20px 10px;
   height: 2px;
   background: #6eb8fd;
 }
