@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Faces (Cultural and Sports) Event - FCRIT College
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This repository contains the code for the Faces Event website, which is dedicated to showcasing both cultural and sports events at our college. The project was designed in Figma, and its implementation is divided into frontend and backend components.
 
-## Available Scripts
+## Design
+The design of the website was meticulously crafted using Figma to ensure an attractive and user-friendly interface that reflects the vibrant spirit of our college's cultural and sports events. Link to [Figma](https://www.figma.com/file/Ht14lagBlajIk2jRYy2iVp/FACES-2023?type=design&node-id=0-1&mode=design&t=fwSObRzHWRFTE9T9-0)
 
-In the project directory, you can run:
+## Frontend
+The frontend of the website was developed using React.js, a popular JavaScript library for building user interfaces. To enhance its functionality, various npm packages were integrated to provide a seamless user experience.
 
-### `npm start`
+## Backend
+The backend of the Faces Event website was implemented using Django, a high-level Python web framework known for its robustness and versatility. The backend code is hosted in a separate repository, which can be found [here](https://github.com/jayesnc2512/facesBackend).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Connection Between Frontend and Backend
+To ensure communication between the frontend and backend, Axios, a promise-based HTTP client, was used to make API requests.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Deployment
+Both the frontend and backend of the website were deployed on Google Cloud. The deployment setup includes:
 
-### `npm test`
+- **Frontend Server**: It is connected via tmux to prevent shutdown when the laptop is turned off.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Backend Server**: It is connected via Nginx and Gunicorn for efficient handling of incoming requests. You can learn more about Nginx and Gunicorn in this [DigitalOcean tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-22-04).
 
-### `npm run build`
+## Domain and SSL Certificate
+The website is accessible via the domain [faces.fcrit.ac.in](https://faces.fcrit.ac.in), which was configured by the college faculty. An SSL certificate was obtained to ensure secure and encrypted communication. The certificate was set up using the following commands:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```shell
+sudo apt-get install python3-certbot-nginx
+sudo apt-get install certbot
+sudo certbot --nginx
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Team
+This project was brought to life by the collaborative efforts of the following team members:
+- Savio
+- Tahir
+- Mathew
+- Jayesh
+- Aniket
+- Chandresh
+- Agrima
+- Aniruddha
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Video Demo
+You can watch a video demo of the website below
 
-### `npm run eject`
+https://github.com/tahir-1134/faces-frontend/assets/91362589/2067db93-8ccc-4a46-a3d1-1b57ad960b6a
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for visiting the Faces Event repository. We hope you enjoy exploring our work!
