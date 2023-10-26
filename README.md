@@ -1,5 +1,5 @@
 # Faces (Cultural and Sports) Event - FCRIT College
-
+## Theme - Ehsaas
 ## Overview
 This repository contains the code for the Faces Event website, which is dedicated to showcasing both cultural and sports events at our college. The project was designed in Figma, and its implementation is divided into frontend and backend components.
 
